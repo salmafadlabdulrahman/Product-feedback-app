@@ -1,0 +1,10 @@
+.navbar-wrapper {
+  background: radial-gradient(
+    128.88% 128.88% at 103.9% -10.39%,
+    rgb(232, 77, 112) 0%,
+    rgb(163, 55, 246) 53.09%,
+    rgb(40, 167, 237) 100%
+  );
+  padding: 1em 1.5em;
+  color: white;
+}
