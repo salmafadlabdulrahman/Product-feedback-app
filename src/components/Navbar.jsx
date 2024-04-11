@@ -32,7 +32,10 @@ function Navbar() {
 
       {openMenu ? (
         <div className="nav-menu">
-          <Categories />
+          <div className="categories-wrapper mt-3">
+            <Categories />
+          </div>
+
           <Roadmap />
         </div>
       ) : (
@@ -43,6 +46,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-/*<div className="categories hidden lg:block">categories</div>
-      <div className="roadmap hidden lg:block">roadmap</div> */
