@@ -6,12 +6,13 @@ function App() {
   return (
     <>
       <div>
-        <main className="main-container lg:flex">
+        <main className="main-container lg:flex gap-[3em]">
           <Navbar />
-          <div className="main-content">
+          <div className="main-content lg:pt-[5em]">
             <AddFeedback />
           </div>
         </main>
+        
       </div>
     </>
   );

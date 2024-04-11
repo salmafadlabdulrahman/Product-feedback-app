@@ -1,6 +1,6 @@
 function AddFeedback() {
   return (
-    <div>
+    <div className="bg-[#3A4374] text-white py-4 px-5">
       Add Feedback
     </div>
   )
