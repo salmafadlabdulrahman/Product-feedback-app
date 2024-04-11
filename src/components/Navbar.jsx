@@ -54,16 +54,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-/*<div className={`nav-menu ${openMenu ? "open" : ""}`}>
-        {openMenu ? (
-          <div className="nav-menu">
-            <div className="categories-wrapper mt-3">
-              <Categories />
-            </div>
-            <Roadmap />
-          </div>
-        ) : (
-          ""
-        )}
-      </div> */
