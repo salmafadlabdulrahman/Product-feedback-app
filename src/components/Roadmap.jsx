@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 
 function Roadmap() {
@@ -17,7 +16,7 @@ function Roadmap() {
     </div>
   ));
   return (
-    <div className="roadmap bg-white py-[1.1em] pl-[1.5em] rounded-xl mt-4 pr-6 md:h-[210px] md:w-[230px] md:mt-0">
+    <div className="roadmap bg-white py-[1.1em] pl-[1.5em] rounded-xl mt-4 pr-6 md:h-[210px] md:w-[240px] md:mt-0">
       <div className="flex justify-between">
         <h3 className="text-[#3a4374] font-bold tracking-wider">Roadmap</h3>
         <a className="text-[#551a8b]">View</a>
