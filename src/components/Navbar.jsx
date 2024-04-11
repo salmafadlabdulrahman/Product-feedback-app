@@ -17,17 +17,17 @@ function Navbar() {
   }
 
   function resizePage() {
-    if (openMenu && window.innerWidth >= md) {
+    if (!openMenu || window.innerWidth >= md) {
       document.body.classList.remove("openedMenu");
-    } else if (openMenu && window.innerWidth <= md){
+    } else if (openMenu && window.innerWidth <= md) {
       document.body.classList.add("openedMenu");
     }
   }
 
   window.addEventListener("resize", resizePage);
   return (
-    <div className="navbar-container">
-      <div className="navbar-wrapper flex items-center justify-between md:w-[280px] md:h-[210px] md:rounded-xl md:items-end">
+    <div className="navbar-container md:flex md:px-[3em] md:py-[5em] md:gap-3 md:items-center">
+      <div className="navbar-wrapper flex items-center justify-between md:w-[250px] md:h-[210px] md:rounded-xl md:items-end">
         <nav className="navbar">
           <h3 className="text-lg font-bold tracking-[.5px] lg:text-xl">
             Frontend Mentor
@@ -66,8 +66,11 @@ function Navbar() {
         ""
       )}
 
-      <div className="widgets-container hidden md:block">
+      <div className="widget-container hidden md:block">
         <Categories />
+      </div>
+
+      <div className="widget-container hidden md:block">
         <Roadmap />
       </div>
     </div>

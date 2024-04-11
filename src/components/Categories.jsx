@@ -16,7 +16,7 @@ function Categories() {
   );
 
   return (
-    <div className="categories bg-white py-[1.1em] pl-[1.5em] rounded-xl">
+    <div className="categories bg-white py-[1.1em] pl-[1.5em] rounded-xl md:h-[210px] md:w-[230px]">
       <ul className="categories-container list-none flex flex-wrap gap-2 ">
         {categories}
       </ul>
