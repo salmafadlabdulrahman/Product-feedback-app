@@ -8,13 +8,23 @@ import Roadmap from "./Roadmap";
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
-  const sm = "700px";
-  
+  const md = 767;
+
   {
     openMenu
       ? document.body.classList.add("openedMenu")
       : document.body.classList.remove("openedMenu");
   }
+
+  function resizePage() {
+    if (openMenu && window.innerWidth >= md) {
+      document.body.classList.remove("openedMenu");
+    } else if (openMenu && window.innerWidth <= md){
+      document.body.classList.add("openedMenu");
+    }
+  }
+
+  window.addEventListener("resize", resizePage);
   return (
     <div className="navbar-container">
       <div className="navbar-wrapper flex items-center justify-between md:w-[280px] md:h-[210px] md:rounded-xl md:items-end">
