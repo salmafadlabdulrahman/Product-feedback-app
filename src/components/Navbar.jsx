@@ -8,6 +8,8 @@ import Roadmap from "./Roadmap";
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
+  const sm = "700px";
+  
   {
     openMenu
       ? document.body.classList.add("openedMenu")
@@ -39,16 +41,25 @@ function Navbar() {
         )}
       </div>
 
+      {/*Mobile size navbar */}
       {openMenu ? (
         <div className="nav-menu md:hidden">
           <div className="categories-wrapper mt-3">
             <Categories />
           </div>
-          <Roadmap />
+
+          <div className="roadmap-wrapper">
+            <Roadmap />
+          </div>
         </div>
       ) : (
         ""
       )}
+
+      <div className="widgets-container hidden md:block">
+        <Categories />
+        <Roadmap />
+      </div>
     </div>
   );
 }
