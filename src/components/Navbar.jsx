@@ -8,6 +8,11 @@ import Roadmap from "./Roadmap";
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
+  {
+    openMenu
+      ? document.body.classList.add("openedMenu")
+      : document.body.classList.remove("openedMenu");
+  }
   return (
     <div className="navbar-container">
       <div className="navbar-wrapper flex items-center justify-between md:w-[280px] md:h-[210px] md:rounded-xl md:items-end">
@@ -19,7 +24,11 @@ function Navbar() {
         </nav>
 
         {openMenu ? (
-          <img src={closeIcon} onClick={() => setOpenMenu(false)} />
+          <img
+            src={closeIcon}
+            className="close-icon"
+            onClick={() => setOpenMenu(false)}
+          />
         ) : (
           <img
             src={menuIcon}
@@ -35,7 +44,6 @@ function Navbar() {
           <div className="categories-wrapper mt-3">
             <Categories />
           </div>
-
           <Roadmap />
         </div>
       ) : (
@@ -46,3 +54,16 @@ function Navbar() {
 }
 
 export default Navbar;
+
+/*<div className={`nav-menu ${openMenu ? "open" : ""}`}>
+        {openMenu ? (
+          <div className="nav-menu">
+            <div className="categories-wrapper mt-3">
+              <Categories />
+            </div>
+            <Roadmap />
+          </div>
+        ) : (
+          ""
+        )}
+      </div> */
