@@ -1,8 +1,13 @@
 import "../styles/navbar.css";
 import "../index.css";
 import menuIcon from "../assets/shared/mobile/icon-hamburger.svg";
+import closeIcon from "../assets/shared/mobile/icon-close.svg";
+import { useState } from "react";
+import Categories from "./Categories";
+import Roadmap from "./Roadmap";
 
 function Navbar() {
+  const [openMenu, setOpenMenu] = useState(false);
   return (
     <div className="navbar-container">
       <div className="navbar-wrapper flex items-center justify-between md:w-[280px] md:h-[210px] md:rounded-xl md:items-end">
@@ -12,13 +17,32 @@ function Navbar() {
           </h3>
           <p>Feedback board</p>
         </nav>
-        <img src={menuIcon} alt="menu icon" className="block md:hidden" />
+
+        {openMenu ? (
+          <img src={closeIcon} onClick={() => setOpenMenu(false)} />
+        ) : (
+          <img
+            src={menuIcon}
+            alt="menu icon"
+            className="block md:hidden"
+            onClick={() => setOpenMenu(true)}
+          />
+        )}
       </div>
 
-      <div className="categories hidden lg:block">categories</div>
-      <div className="roadmap hidden lg:block">roadmap</div>
+      {openMenu ? (
+        <div className="nav-menu">
+          <Categories />
+          <Roadmap />
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
 
 export default Navbar;
+
+/*<div className="categories hidden lg:block">categories</div>
+      <div className="roadmap hidden lg:block">roadmap</div> */

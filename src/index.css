@@ -11,3 +11,10 @@
 body {
   font-family: "Jost", sans-serif;
 }
+
+.categories {
+  max-width: 250px;
+}
+.nav-menu {
+  background-color: rgba(0, 0, 0, 0.1);
+}
