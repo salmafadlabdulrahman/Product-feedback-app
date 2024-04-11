@@ -18,7 +18,7 @@ body {
 
 .nav-menu {
   background-color: #f7f8fd;
-  position: absolute;
+  position: absolute; 
   right: 0;
   padding-left: 1.5em;
   padding-right: 1.3em;
@@ -31,10 +31,10 @@ body {
 /* Define keyframes for the slide-in animation */
 @keyframes slideIn {
   from {
-    transform: translateX(100%);
+    transform: translateY(100%);
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 

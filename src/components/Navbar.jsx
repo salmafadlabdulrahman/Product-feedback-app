@@ -26,21 +26,21 @@ function Navbar() {
         {openMenu ? (
           <img
             src={closeIcon}
-            className="close-icon"
+            className="close-icon md:hidden lg:hidden"
             onClick={() => setOpenMenu(false)}
           />
         ) : (
           <img
             src={menuIcon}
             alt="menu icon"
-            className="block md:hidden"
+            className="block md:hidden lg:hidden"
             onClick={() => setOpenMenu(true)}
           />
         )}
       </div>
 
       {openMenu ? (
-        <div className="nav-menu">
+        <div className="nav-menu md:hidden">
           <div className="categories-wrapper mt-3">
             <Categories />
           </div>
