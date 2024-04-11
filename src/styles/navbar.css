@@ -26,6 +26,10 @@
   max-width: 300px;
 }
 
+.roadmap {
+  border: 1px solid blue;
+}
+
 /* Define keyframes for the slide-in animation */
 @keyframes slideIn {
   from {

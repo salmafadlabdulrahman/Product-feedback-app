@@ -25,9 +25,9 @@ function Navbar() {
   }
 
   window.addEventListener("resize", resizePage);
-  return ( 
-    <div className="navbar-container md:flex md:gap-3 md:items-center md:max-w-[750px] md:m-auto md:pt-[5em]">
-      <div className="navbar-wrapper flex items-center justify-between md:w-[250px] md:h-[210px] md:rounded-xl md:items-end">
+  return (
+    <div className="navbar-container md:flex md:gap-3 md:items-center md:max-w-[750px] md:m-auto md:pt-[5em] lg:flex-col lg:m-0 lg:gap-7">
+      <div className="navbar-wrapper flex items-center justify-between md:w-[250px] md:h-[210px] md:rounded-xl md:items-end lg:h-[160px] lg:w-[220px]">
         <nav className="navbar">
           <h3 className="text-lg font-bold tracking-[.5px] lg:text-xl">
             Frontend Mentor

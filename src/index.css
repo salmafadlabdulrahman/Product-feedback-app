@@ -13,3 +13,10 @@ body {
   background: rgb(247, 248, 253)
 }
 
+.main-container {
+  justify-content: space-between;
+  max-width: 1010px;
+  margin: 0 auto;
+  border: 1px solid blueviolet;
+  width: 80%;
+}

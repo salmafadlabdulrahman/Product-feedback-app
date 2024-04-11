@@ -7,7 +7,9 @@ function Categories() {
     (categorie, index) => (
       <li
         key={index}
-        className={`${activeCategory === index ? "active" : ""} text-[#4661E6] bg-[#f7f8fd] font-bold py-[.5em] px-[1.1em] rounded-lg text-[.9em]`}
+        className={`${
+          activeCategory === index ? "active" : ""
+        } text-[#4661E6] bg-[#f7f8fd] font-bold py-[.5em] px-[1.1em] rounded-lg text-[.9em] cursor-pointer`}
         onClick={() => setActiveCategory(index)}
       >
         {categorie}
@@ -16,7 +18,7 @@ function Categories() {
   );
 
   return (
-    <div className="categories bg-white py-[1.1em] pl-[1.5em] rounded-xl md:h-[210px] md:w-[230px]">
+    <div className="categories bg-white py-[1.1em] pl-[1.5em] rounded-xl md:h-[210px] md:w-[230px] lg:w-[220px] lg:h-[170px]">
       <ul className="categories-container list-none flex flex-wrap gap-2 ">
         {categories}
       </ul>
