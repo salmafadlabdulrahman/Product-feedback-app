@@ -21,11 +21,11 @@
   }
 }
 
-/*Feedback card*/
-/*.cards-container {
-  border: 1px solid blue;
-}*/
+.arrow-up {
+  transition: transform 0.3s;
+}
 
-.comments-container {
-  /*border: 1px solid blue;*/
+.arrow-down {
+  transform: rotate(-180deg);
+  transition: transform 0.3s;
 }

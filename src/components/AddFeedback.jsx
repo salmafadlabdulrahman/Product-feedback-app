@@ -18,7 +18,7 @@ function AddFeedback() {
         <h3 className="hidden md:flex items-center gap-3"><img src={suggestionsIcon} alt="suggestions icon" />7 Suggestions</h3>
         <h3 className="flex items-center gap-2">
           Sort by: {sorting[0]}{" "}
-          <button onClick={() => setListOpen((prevState) => !prevState)}>
+          <button onClick={() => setListOpen((prevState) => !prevState)} className={listOpen ? "arrow-down" : "arrow-up"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
