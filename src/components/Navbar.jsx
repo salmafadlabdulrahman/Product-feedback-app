@@ -8,25 +8,9 @@ import Roadmap from "./Roadmap";
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
-  const md = 767;
 
-  {
-    openMenu
-      ? document.body.classList.add("openedMenu")
-      : document.body.classList.remove("openedMenu");
-  }
-
-  function resizePage() {
-    if (!openMenu || window.innerWidth >= md) {
-      document.body.classList.remove("openedMenu");
-    } else if (openMenu && window.innerWidth <= md) {
-      document.body.classList.add("openedMenu");
-    }
-  }
-
-  window.addEventListener("resize", resizePage);
   return (
-    <div className="navbar-container md:flex md:gap-3 md:items-center md:max-w-[750px] md:m-auto md:pt-[5em] lg:flex-col lg:m-0 lg:gap-7">
+    <div className="navbar-container md:flex md:gap-3 md:items-center md:max-w-[750px] md:m-auto md:pt-[5em] lg:flex-col lg:m-0 lg:gap-7 z-[666]">
       <div className="navbar-wrapper flex items-center justify-between md:w-[250px] md:h-[210px] md:rounded-xl md:items-end lg:h-[160px] lg:w-[100%]">
         <nav className="navbar">
           <h3 className="text-lg font-bold tracking-[.5px] lg:text-xl">
@@ -73,6 +57,7 @@ function Navbar() {
       <div className="widget-container hidden md:block">
         <Roadmap />
       </div>
+      <div className={openMenu ? "overlay" : ""}></div>
     </div>
   );
 }
