@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/feedback.css";
 import suggestionsIcon from "../assets/shared/suggestions/icon-suggestions.svg"
+import checkIcon from "../assets/shared/icon-check.svg"
 
 const sorting = [
   "Most Upvotes",
@@ -43,7 +44,7 @@ function AddFeedback() {
         <div className="filter-list">
           <ul className="comments-filter-list bg-white w-[190px] rounded-xl ml-[2em] mt-[1em] md:m-auto md:mt-[1em]">
             {sorting.map((item, index) => (
-              <li key={index} className="text-[#647196] text-[.8em] p-[.9em]">{item}</li>
+              <li key={index} className="text-[#647196] text-[.8em] p-[.9em] flex items-center justify-between">{item}{index === 0 ? <img src={checkIcon} /> : ""}</li>
             ))}
           </ul>
         </div>
