@@ -41,7 +41,7 @@ function AddFeedback() {
 
       {listOpen ? (
         <div className="filter-list">
-          <ul className="comments-filter-list bg-white w-[190px] rounded-xl ml-[2em] mt-[1em] md:m-auto md:mt-[1em]">
+          <ul className="comments-filter-list bg-white w-[190px] rounded-xl ml-[2em] mt-[1em] md:m-auto md:mt-[1em] lg:m-0">
             {sorting.map((item, index) => (
               <li key={index} className="text-[#647196] text-[.8em] p-[.9em]">{item}</li>
             ))}

@@ -12,6 +12,7 @@
 /*Navbar*/
 .navbar-container {
   position: relative;
+  border: 1px solid blue;
 }
 
 .nav-menu {
