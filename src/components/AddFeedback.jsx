@@ -1,5 +1,4 @@
 import { useState } from "react";
-import arrowUp from "../assets/shared/icon-arrow-up.svg";
 import "../styles/feedback.css";
 
 const sorting = [
