@@ -1,6 +1,7 @@
 import "./index.css";
 import Navbar from "./components/Navbar";
 import AddFeedback from "./components/AddFeedback";
+import FeedbackCard from "./components/FeedbackCard";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
           <Navbar />
           <div className="main-content lg:pt-[5em] lg:w-[100%]">
             <AddFeedback />
+            <FeedbackCard />
           </div>
         </main>
         

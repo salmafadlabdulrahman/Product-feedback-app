@@ -20,3 +20,12 @@
     transform: translateY(0);
   }
 }
+
+/*Feedback card*/
+/*.cards-container {
+  border: 1px solid blue;
+}*/
+
+.comments-container {
+  /*border: 1px solid blue;*/
+}
