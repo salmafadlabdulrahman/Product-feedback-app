@@ -2,15 +2,21 @@ import { useParams, Link } from "react-router-dom";
 import data from "../../data.json";
 import AddFeedbackBtn from "../components/AddFeedbackBtn";
 import FeedbackCard from "../components/FeedbackCard";
+import Comment from "../components/Comment";
 
 function FeedbackDetails() {
   const params = useParams();
   const commentData = data.productRequests[params.id - 1];
 
+  //const commentCards = commentData.comments.map((item, index) => )
+
   return (
     <div>
       <div className="nav-links flex items-center justify-between p-[2em]">
-        <Link to={"/"} className="flex items-center gap-2 text-[#4661E6] font-semibold text-[.9em]">
+        <Link
+          to={"/"}
+          className="flex items-center gap-2 text-[#4661E6] font-semibold text-[.9em]"
+        >
           {" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -42,6 +48,23 @@ function FeedbackDetails() {
           upvotes={commentData.upvotes}
           commentsCount={commentData.comments.length}
         />
+      </div>
+
+      <div className="comments-container bg-white mt-6 w-[90%] m-auto rounded-lg p-[2em]">
+        <h1 className="text-[#3A4374] font-bold text-[1.5em]">
+          {commentData.comments.length} Comment
+          {commentData.comments.length > 1 ? "s" : ""}
+        </h1>
+        {commentData.comments.map((item, index) => (
+          <Comment
+            key={index}
+            userImg={item.user.image}
+            name={item.user.name}
+            userName={item.user.username}
+            content={item.content}
+            id={item.id}
+          />
+        ))}
       </div>
     </div>
   );
