@@ -10,7 +10,7 @@ function FeedbackDetails() {
   return (
     <div>
       <div className="nav-links flex items-center justify-between p-[2em]">
-        <Link className="flex items-center gap-2 text-[#4661E6] font-semibold text-[.9em]">
+        <Link to={"/"} className="flex items-center gap-2 text-[#4661E6] font-semibold text-[.9em]">
           {" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ function FeedbackDetails() {
           Go Back
         </Link>
         <div className="text-white">
-          <AddFeedbackBtn bgColor={"4661E6"} content={"Edit"} />
+          <AddFeedbackBtn bgColor={"#4661E6"} content={"Edit"} />
         </div>
       </div>
 

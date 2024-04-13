@@ -41,7 +41,7 @@ function AddFeedback() {
             </svg>
           </button>
         </h3>
-        <AddFeedbackBtn bgColor={"AD1FEA"} content={"Add"} />
+        <AddFeedbackBtn bgColor={"#AD1FEA"} content={"Add"} />
       </div>
 
       {listOpen ? (
