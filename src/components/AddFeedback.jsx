@@ -47,7 +47,7 @@ function AddFeedback() {
 
       {listOpen ? (
         <div className="filter-list relative">
-          <ul className="comments-filter-list bg-white w-[190px] rounded-xl ml-[1em] mt-[1em] md:m-auto md:mt-[1em] absolute md:left-0 md:right-0 lg:left-0 lg:right-0">
+          <ul className="comments-filter-list bg-white w-[190px] rounded-xl ml-[1em] mt-[1em] md:m-auto md:mt-[1em] absolute z-[55555] md:left-0 md:right-0 lg:left-0 lg:right-0">
             {sorting.map((item, index) => (
               <li
                 key={index}

@@ -22,9 +22,9 @@
   padding-left: 1.5em;
   padding-right: 1.3em;
   padding-top: 0.7em;
-  height: 100vh;
   animation: slideIn 0.6s ease forwards; 
   max-width: 300px;
+  height: 100vh;
 }
 
 /* Define keyframes for the slide-in animation */
@@ -39,10 +39,14 @@
 
 .overlay {
   background-color: rgba(0, 0, 0, 0.2);
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: -88888;
+  position: fixed;
 }
 
 .categories, .roadmap {
