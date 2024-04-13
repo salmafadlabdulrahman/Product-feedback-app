@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/feedback.css";
 import suggestionsIcon from "../assets/shared/suggestions/icon-suggestions.svg";
 import checkIcon from "../assets/shared/icon-check.svg";
+import AddFeedbackBtn from "./AddFeedbackBtn";
 
 const sorting = [
   "Most Upvotes",
@@ -40,9 +41,7 @@ function AddFeedback() {
             </svg>
           </button>
         </h3>
-        <button className="bg-[#AD1FEA] px-[1.4em] py-[.7em] rounded-lg text-[.8em] font-bold cursor-pointer">
-          + Add Feedback
-        </button>
+        <AddFeedbackBtn bgColor={"#AD1FEA"} content={"Add"} />
       </div>
 
       {listOpen ? (

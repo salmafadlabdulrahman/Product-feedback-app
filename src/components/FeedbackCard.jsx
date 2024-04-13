@@ -13,7 +13,7 @@ function FeedbackCard({
 }) {
   return (
     <div className="cards-container m-auto mt-6 md:max-w-[750px] md:mt-6">
-      <Link to={"/feedbackdetails"}>
+      <Link to={`/feedbackdetails/${id}`}>
         <div className="card-container w-[90%] m-auto md:w-[100%] bg-white px-7 py-5 rounded-lg md:flex md:items-center relative ">
           <div className="main-card-content md:order-2 md:ml-[4em] "> 
             <h2 className="text-[#3A4374] font-bold text-[1.3em] ">{title}</h2>
