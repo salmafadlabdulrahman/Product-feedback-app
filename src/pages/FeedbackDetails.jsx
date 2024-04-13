@@ -2,13 +2,11 @@ import { useParams, Link } from "react-router-dom";
 import data from "../../data.json";
 import AddFeedbackBtn from "../components/AddFeedbackBtn";
 import FeedbackCard from "../components/FeedbackCard";
-import Comment from "../components/Comment";
+import CommentsContainer from "../components/CommentsContainer";
 
 function FeedbackDetails() {
   const params = useParams();
   const commentData = data.productRequests[params.id - 1];
-
-  //const commentCards = commentData.comments.map((item, index) => )
 
   return (
     <div>
@@ -50,27 +48,7 @@ function FeedbackDetails() {
         />
       </div>
 
-      <div className="comments-container bg-white mt-6 md:max-w-[750px] w-[90%] m-auto rounded-lg p-[2em]">
-        <h1 className="text-[#3A4374] font-bold text-[1.5em]">
-          {commentData.comments.length} Comment
-          {commentData.comments.length > 1 ? "s" : ""}
-        </h1>
-        {commentData.comments.map((item, index) => (
-          <div
-            className={commentData.comments.length > 1 && index === 0 ? "comment-container" : ""}
-            key={index}
-          >
-            <Comment
-              commentsCount={commentData.comments.length}
-              userImg={item.user.image}
-              name={item.user.name}
-              userName={item.user.username}
-              content={item.content}
-              id={item.id}
-            />
-          </div>
-        ))}
-      </div>
+      <CommentsContainer commentData={commentData} />
     </div>
   );
 }

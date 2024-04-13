@@ -1,4 +1,4 @@
-import "../styles/comment.css"
+import "../styles/comment.css";
 
 function Comment({ commentsCount, userImg, name, userName, content, id }) {
   return (
@@ -16,7 +16,9 @@ function Comment({ commentsCount, userImg, name, userName, content, id }) {
               <h4 className="text-[#3A4374] font-bold tracking-wide">{name}</h4>
               <h5 className="text-[#647196]">@{userName}</h5>
             </div>
-            <button className="items-start text-[#4661E6] font-semibold text-[.9em]">Reply</button>
+            <button className="items-start text-[#4661E6] font-semibold text-[.9em]">
+              Reply
+            </button>
           </div>
         </div>
 
