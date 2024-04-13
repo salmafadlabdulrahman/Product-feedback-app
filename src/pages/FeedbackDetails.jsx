@@ -29,7 +29,7 @@ function FeedbackDetails() {
           Go Back
         </Link>
         <div className="text-white">
-          <AddFeedbackBtn bgColor={"#4661E6"} content={"Edit"} />
+          <AddFeedbackBtn bgColor={"4661E6"} content={"Edit"} />
         </div>
       </div>
 
