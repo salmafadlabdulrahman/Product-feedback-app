@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 import "../styles/feedback.css";
 import iconComment from "../assets/shared/icon-comments.svg";
 
 function FeedbackCard() {
   return (
     <div className="cards-container m-auto mt-6 md:max-w-[750px] md:mt-6">
-      <div className="card-container w-[90%] m-auto md:w-[100%] bg-white px-7 py-5 rounded-lg md:flex md:items-center ">
+      <Link to={"/feedbackdetails"}><div className="card-container w-[90%] m-auto md:w-[100%] bg-white px-7 py-5 rounded-lg md:flex md:items-center ">
         <div className="main-card-content md:order-2 md:ml-[4em] md:w-[75%]">
           <h2 className="text-[#3A4374] font-bold text-[1.3em] ">
             Add tags for solutions
@@ -17,7 +19,7 @@ function FeedbackCard() {
           </button>
         </div>
 
-        <div className="comments-container flex items-center justify-between mt-5 md:m-0 ">
+        <div className="comments-container flex items-center justify-between mt-5 md:m-0 cursor-pointer">
           <div className="votes-num bg-[#f7f8fd] text-[#3A4374] flex items-center w-[70px] justify-center gap-2 h-[40px] rounded-lg font-bold text-[.9em] md:order-1 md:block md:text-center md:h-[50px] md:pt-[.1em] ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +43,7 @@ function FeedbackCard() {
             <img src={iconComment} alt="comments icon" />2
           </div>
         </div>
-      </div>
+      </div></Link>
     </div>
   );
 }

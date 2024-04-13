@@ -1,21 +1,16 @@
-import "./index.css";
-import Navbar from "./components/Navbar";
-import AddFeedback from "./components/AddFeedback";
-import FeedbackCard from "./components/FeedbackCard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FeedbackDetails from "./pages/FeedbackDetails";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
-      <div>
-        <main className="main-container lg:flex gap-[3em] lg:w-[80%]">
-          <Navbar />
-          <div className="main-content lg:pt-[5em] lg:w-[100%]">
-            <AddFeedback />
-            <FeedbackCard />
-          </div>
-        </main>
-        
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/feedbackdetails" element={<FeedbackDetails />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
