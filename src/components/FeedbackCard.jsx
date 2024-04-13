@@ -3,8 +3,8 @@ import iconComment from "../assets/shared/icon-comments.svg";
 
 function FeedbackCard() {
   return (
-    <div className="cards-container w-[90%] m-auto mt-6">
-      <div className="card-container bg-white w-[100%] md:max-w-[80%] px-7 py-5 rounded-lg">
+    <div className="cards-container m-auto mt-6 md:max-w-[750px] md:mt-6">
+      <div className="card-container w-[90%] m-auto md:w-[100%] bg-white px-7 py-5 rounded-lg"> 
         <div className="main-card-content">
           <h2 className="text-[#3A4374] font-bold text-[1.3em] ">
             Add tags for solutions
