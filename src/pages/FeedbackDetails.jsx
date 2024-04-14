@@ -3,6 +3,7 @@ import data from "../../data.json";
 import AddFeedbackBtn from "../components/AddFeedbackBtn";
 import FeedbackCard from "../components/FeedbackCard";
 import CommentsContainer from "../components/CommentsContainer";
+import AddComment from "../components/AddComment";
 
 function FeedbackDetails() {
   const params = useParams();
@@ -10,7 +11,7 @@ function FeedbackDetails() {
 
   return (
     <div>
-      <div className="nav-links flex items-center justify-between p-[2em]">
+      <div className="nav-links flex items-center justify-between p-[2em] md:w-[750px] md:m-auto md:p-0 md:pt-[4em]">
         <Link
           to={"/"}
           className="flex items-center gap-2 text-[#4661E6] font-semibold text-[.9em]"
@@ -49,6 +50,8 @@ function FeedbackDetails() {
       </div>
 
       <CommentsContainer commentData={commentData} />
+
+      <AddComment />
     </div>
   );
 }

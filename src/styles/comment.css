@@ -7,3 +7,11 @@
     padding: 0 3em;
     border-left: 1px solid rgba(208, 204, 208, 0.384);
 }
+
+.add-comment-btn {
+    background-color: rgba(173, 168, 168, 0.582);
+}
+
+.add-comment-btn:hover {
+    cursor: not-allowed;
+}
