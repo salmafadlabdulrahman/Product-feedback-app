@@ -1,6 +1,6 @@
 import "../styles/comment.css";
 
-function Comment({ commentsCount, userImg, name, userName, content, id }) {
+function Comment({ userImg, name, userName, content }) {
   return (
     <div>
       <div className="comment-content">

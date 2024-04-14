@@ -1,4 +1,6 @@
 import Comment from "../components/Comment";
+import ReplyComment from "./ReplyComment";
+import "../styles/comment.css"
 
 function CommentsContainer({ commentData }) {
   return (
@@ -28,9 +30,9 @@ function CommentsContainer({ commentData }) {
               />
             </div>
 
-            {/*<div className="replies-content">
-              {item.replies ? item.replies.map((reply, index) => <Comment key={index} reply={reply} />) : ""}
-            </div>*/}
+            <div className="replies-container">
+              {item.replies ? item.replies.map((reply, index) => <ReplyComment key={index} reply={reply} />) : ""}
+            </div>
           </div>
         ))}
       </div>

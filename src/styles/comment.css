@@ -2,3 +2,8 @@
     border-bottom: 1px solid rgba(208, 204, 208, 0.384);
     padding-bottom: 3em;
 }
+
+.reply-wrapper {
+    padding: 0 3em;
+    border-left: 1px solid rgba(208, 204, 208, 0.384);
+}
