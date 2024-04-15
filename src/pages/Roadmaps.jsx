@@ -5,7 +5,7 @@ import RoadmapNavLayout from "../components/RoadmapNavLayout";
 function Roadmap() {
   return (
     <div>
-      <div className="bg-[#3A4374] p-4 flex items-center justify-between">
+      <div className="bg-[#3A4374] p-4 flex items-center justify-between md:w-[90%] md:m-auto md:mt-[4em] md:rounded-lg md:p-[2em]">
         <div>
           <Link className="flex items-center gap-3 text-white font-semibold">
             <svg
