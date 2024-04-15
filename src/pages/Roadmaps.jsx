@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import AddFeedbackBtn from "../components/AddFeedbackBtn";
 import RoadmapNavLayout from "../components/RoadmapNavLayout";
+import { useState } from "react";
 
 function Roadmap() {
+  const [currentPlan, setCurrentPlan] = useState("planned")
   return (
     <div>
       <div className="bg-[#3A4374] p-4 flex items-center justify-between md:w-[90%] md:m-auto md:mt-[4em] md:rounded-lg md:p-[2em]">
@@ -34,6 +36,14 @@ function Roadmap() {
 
       <div>
         <RoadmapNavLayout />
+      </div>
+
+      <div className="hidden md:block w-[90%] m-auto">
+        <ul className="flex list-none justify-start gap-[4em] mt-[1.5em] text-[1.5em] font-bold text-[#3A4374]">
+          <li>Planned(2)</li>
+          <li>In-Progress(3)</li>
+          <li>Live(1)</li>
+        </ul>
       </div>
     </div>
   );
