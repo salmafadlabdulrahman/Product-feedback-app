@@ -6,7 +6,7 @@ function RoadmapNavLayout() {
     <>
       <div className="md:hidden">
         <div className="roadmap-nav md:w-[90%] md:m-auto">
-          <ul className="something flex list-none justify-between border-b-2 border-[rgba(208, 204, 208, 0.384)] py-[1.5em] px-[2em] text-[#3A4374] text-[.9em] font-semibold ">
+          <ul className="flex list-none justify-between border-b-2 border-[rgba(208, 204, 208, 0.384)] py-[1.5em] px-[2em] text-[#3A4374] text-[.9em] font-semibold ">
             <NavLink
               to={"."}
               className={({ isActive }) =>

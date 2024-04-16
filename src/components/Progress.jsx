@@ -21,13 +21,13 @@ function Progress() {
             {response.title}
           </h1>
           <p className="text-[#647196] mt-3">{response.description}</p>
-          <p className="text-[#4661E6] bg-[#f7f8fd] font-bold py-[.5em] px-[1.1em] rounded-md text-[.9em] cursor-pointer w-[80px] mt-4">
+          <p className="text-[#4661E6] bg-[#f7f8fd] font-bold rounded-md text-[.9em] cursor-pointer w-[80px] h-[37px] justify-center flex items-center mt-4">
             {response.category}
           </p>
 
           <div className="flex items-center justify-between relative">
             <div className="comments-container flex items-center justify-between mt-5 md:m-0 cursor-pointer">
-              <div className="votes-num bg-[#f7f8fd] text-[#3A4374] flex items-center w-[70px] justify-center gap-2 h-[40px] rounded-lg font-bold text-[.9em] md:order-1 md:block md:text-center md:h-[50px] md:pt-[.1em] ">
+              <div className="votes-num bg-[#f7f8fd] text-[#3A4374] flex items-center w-[70px] justify-center gap-2 h-[40px] rounded-lg font-bold text-[.9em] md:order-1 md:block md:text-center md:h-[50px] md:pt-[.1em] md:mt-[1.5em]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -47,7 +47,6 @@ function Progress() {
             </div>
             <div className="comment-img-container absolute right-[0px] bottom-[7px] ">
               {" "}
-              {/*absolute md:order-3 right-[50px] bottom-[25px] */}
               <div className="comment flex items-center text-[#4661E6] font-bold gap-2">
                 <img src={iconComment} alt="comments icon" />
                 <span className="">{response.comments.length}</span>
@@ -59,7 +58,7 @@ function Progress() {
     ));
 
   return (
-    <div className="px-[1.5em] py-2">
+    <div className="px-[1.5em] py-2 md:p-0">
       <h2 className="text-[1.5em] font-bold text-[#3A4374] mt-3">
         In-Progress ({progressData.length})
       </h2>

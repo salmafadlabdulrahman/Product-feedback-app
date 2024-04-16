@@ -24,7 +24,7 @@ function Planning() {
 
           <div className="flex items-center justify-between relative">
             <div className="comments-container flex items-center justify-between mt-5 md:m-0 cursor-pointer">
-              <div className="votes-num bg-[#f7f8fd] text-[#3A4374] flex items-center w-[70px] justify-center gap-2 h-[40px] rounded-lg font-bold text-[.9em] md:order-1 md:block md:text-center md:h-[50px] md:pt-[.1em] ">
+              <div className="votes-num bg-[#f7f8fd] text-[#3A4374] flex items-center w-[70px] justify-center gap-2 h-[40px] rounded-lg font-bold text-[.9em] md:order-1 md:block md:text-center md:h-[50px] md:pt-[.1em] md:mt-[1.5em] ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -55,7 +55,7 @@ function Planning() {
     ));
 
   return (
-    <div className="px-[1.5em] py-2">
+    <div className="px-[1.5em] py-2 md:p-0">
       <h2 className="text-[1.5em] font-bold text-[#3A4374] mt-3">
         Planned ({planningData.length})
       </h2>
