@@ -56,7 +56,7 @@ function Progress() {
   return (
     <div className="px-[1.5em] py-2">
       <h2 className="text-[1.5em] font-bold text-[#3A4374] mt-3">
-        In-Progress (2)
+        In-Progress ({progressData.length})
       </h2>
       <p className="mt-3 text-[#647196]">Currently being developed</p>
 
