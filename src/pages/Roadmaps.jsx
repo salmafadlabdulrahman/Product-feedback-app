@@ -40,16 +40,10 @@ function Roadmap() {
       </div>
 
       <div className="hidden md:block ">
-        <div className="flex  gap-[1em] w-[90%] m-auto ">
-          <div>
-            <Planning />
-          </div>
-          <div>
-            <Progress />
-          </div>
-          <div>
-            <Live />
-          </div>
+        <div className="flex gap-[1em] w-[90%] m-auto mt-[2.5em] ">
+          <Planning />
+          <Progress />
+          <Live />
         </div>
       </div>
     </div>
