@@ -60,7 +60,7 @@ function Planning() {
       </h2>
       <p className="mt-3 text-[#647196]">Ideas prioritized for research</p>
 
-      <div>{planningData}</div>
+      <div className="mb-[2em]">{planningData}</div>
     </div>
   );
 }
