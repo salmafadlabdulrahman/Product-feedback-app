@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../styles/feedback.css";
 import suggestionsIcon from "../assets/shared/suggestions/icon-suggestions.svg";
 import checkIcon from "../assets/shared/icon-check.svg";
-import AddFeedbackBtn from "./AddFeedbackBtn";
+import { Link } from "react-router-dom";
 
 const sorting = [
   "Most Upvotes",
@@ -13,6 +13,7 @@ const sorting = [
 
 function AddFeedback() {
   const [listOpen, setListOpen] = useState(false);
+
   return (
     <div>
       <div className="bg-[#3A4374] text-white py-4 px-5 flex items-center justify-between md:rounded-[10px] md:mt-[4em] md:max-w-[750px] md:m-auto lg:m-0">
@@ -41,7 +42,11 @@ function AddFeedback() {
             </svg>
           </button>
         </h3>
-        <AddFeedbackBtn bgColor={"#AD1FEA"} content={"Add"} />
+        <Link to={"add-feedback"}>
+          <button className="bg-[#AD1FEA] px-[1.4em] py-[.7em] rounded-lg text-[.8em] font-bold cursor-pointer text-white">
+            Add Feedback
+          </button>
+        </Link>
       </div>
 
       {listOpen ? (

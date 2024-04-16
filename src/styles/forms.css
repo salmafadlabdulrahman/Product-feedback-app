@@ -1,0 +1,23 @@
+select {
+  appearance: none; /* Remove default appearance */
+  background-color: transparent; /* Make background transparent */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  padding: 0; /* Remove default padding */
+  font-family: inherit; /* Use inherit font */
+  font-size: inherit; /* Use inherit font size */
+  cursor: pointer; /* Show pointer cursor */
+}
+
+.categories-list {
+  background-color: #f7f8fd;
+  width: 90%;
+  border-radius: 5px;
+  height: 50px;
+  padding-left: 1em;
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1em;
+}
