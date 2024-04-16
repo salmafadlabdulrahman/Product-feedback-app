@@ -44,7 +44,6 @@ function Planning() {
             </div>
             <div className="comment-img-container absolute right-[0px] bottom-[7px] ">
               {" "}
-              {/*absolute md:order-3 right-[50px] bottom-[25px] */}
               <div className="comment flex items-center text-[#4661E6] font-bold gap-2">
                 <img src={iconComment} alt="comments icon" />
                 <span className="">{response.comments.length}</span>

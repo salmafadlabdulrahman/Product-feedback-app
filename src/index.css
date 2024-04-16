@@ -17,3 +17,7 @@ body {
   max-width: 1010px;
   margin: 0 auto;
 }
+
+.something li{
+  border: 1px solid red;
+}
