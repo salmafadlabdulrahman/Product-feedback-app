@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AddFeedbackBtn from "../components/AddFeedbackBtn";
 import RoadmapNavLayout from "../components/RoadmapNavLayout";
 import Planning from "../components/Planning";
@@ -6,11 +6,12 @@ import Progress from "../components/Progress";
 import Live from "../components/Live";
 
 function Roadmap() {
+  const navigate = useNavigate()
   return (
     <div>
       <div className="bg-[#3A4374] p-4 flex items-center justify-between md:w-[90%] md:m-auto md:mt-[4em] md:rounded-lg md:p-[2em]">
         <div>
-          <Link className="flex items-center gap-3 text-white font-semibold">
+          <Link className="flex items-center gap-3 text-white font-semibold" onClick={() => navigate(-1)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
