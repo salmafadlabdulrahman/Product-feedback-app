@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import data from "../../data.json";
 import AddFeedbackBtn from "../components/AddFeedbackBtn";
 import FeedbackCard from "../components/FeedbackCard";
@@ -7,13 +7,14 @@ import AddComment from "../components/AddComment";
 
 function FeedbackDetails() {
   const params = useParams();
+  const navigate = useNavigate() 
   const commentData = data.productRequests[params.id - 1];
 
   return (
     <div>
       <div className="nav-links flex items-center justify-between p-[2em] md:w-[750px] md:m-auto md:p-0 md:pt-[4em]">
         <Link
-          to={"/"}
+          onClick={() => navigate(-1)}
           className="flex items-center gap-2 text-[#4661E6] font-semibold text-[.9em]"
         >
           {" "}

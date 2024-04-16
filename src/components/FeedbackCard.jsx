@@ -10,7 +10,8 @@ function FeedbackCard({
   category,
   upvotes,
   commentsCount,
-}) {
+}) { 
+
   return (
     <div className="cards-container m-auto mt-6 md:max-w-[750px] md:mt-6">
       <Link to={`/feedbackdetails/${id}`}>
