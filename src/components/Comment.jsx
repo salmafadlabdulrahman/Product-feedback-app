@@ -1,6 +1,8 @@
+import { useState } from "react";
 import "../styles/comment.css";
 
 function Comment({ userImg, name, userName, content }) {
+  const [reply, setReply] = useState(false);
   return (
     <div>
       <div className="comment-content">
@@ -16,7 +18,10 @@ function Comment({ userImg, name, userName, content }) {
               <h4 className="text-[#3A4374] font-bold tracking-wide">{name}</h4>
               <h5 className="text-[#647196]">@{userName}</h5>
             </div>
-            <button className="items-start text-[#4661E6] font-semibold text-[.9em]">
+            <button
+              className="items-start text-[#4661E6] font-semibold text-[.9em]"
+              onClick={() => setReply(!reply)}
+            >
               Reply
             </button>
           </div>
@@ -25,6 +30,15 @@ function Comment({ userImg, name, userName, content }) {
         <div className="comment-body">
           <p className="text-[#647196] mt-4">{content}</p>
         </div>
+
+        {reply ? (
+          <div className="flex items-start  gap-4 mt-[1em]">
+            <textarea rows={3} cols={70} className="bg-[#f7f8fd] rounded-xl outline-none pl-2" />
+            <button className="bg-[#AD1EFA] text-white font-semibold py-[.7em] px-[1.5em] rounded-xl">Post Reply</button>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
