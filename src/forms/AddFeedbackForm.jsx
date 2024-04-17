@@ -5,8 +5,8 @@ import plusIcon from "../assets/shared/icon-new-feedback.svg"
 function AddFeedbackForm() {
   const navigate = useNavigate();
   return (
-    <div className="relative">
-      <div className="p-5">
+    <div className="relative lg:w-[50%] lg:m-auto">
+      <div className="p-5 ">
         <Link
           className="flex items-center gap-3 text-[#4661e6] font-semibold"
           onClick={() => navigate(-1)}
