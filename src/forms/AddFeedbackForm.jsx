@@ -43,38 +43,14 @@ function AddFeedbackForm() {
         <label className="text-[#647196] text-[.9em]" htmlFor="categories">
           Choose a category for your feedback
         </label>
-        <div className="categories-list">
-          <select
-            name="categories"
-            id="categories"
-            className="outline-none relative custom-select"
-          >
+        <div className="select-container">
+          <select name="categories" id="categories" className="select-box">
             <option value="ui">UI</option>
             <option value="ux">UX</option>
             <option value="enhancement">Enhancement</option>
             <option value="feature">Feature</option>
             <option value="bug">Bug</option>
           </select>
-
-          <button
-            onClick={() => setListOpen((prevState) => !prevState)}
-            className={listOpen ? "arrow-down" : "arrow-up"}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m4.5 15.75 7.5-7.5 7.5 7.5"
-              />
-            </svg>
-          </button>
         </div>
 
         <div>
@@ -85,7 +61,12 @@ function AddFeedbackForm() {
             Include any specific comments on what should be improved, added,
             etc.
           </p>
-          <input type="text" className="pl-[1em] h-[150px] bg-[#F7F8FD] mt-[1em] w-[90%] outline-none rounded-lg align-top" />
+
+          <textarea
+            rows="4"
+            cols="50"
+            className="pl-[1em] pt-[1em] bg-[#F7F8FD] mt-[1em] outline-none rounded-lg w-[90%]"
+          />
         </div>
       </div>
     </div>
@@ -93,3 +74,8 @@ function AddFeedbackForm() {
 }
 
 export default AddFeedbackForm;
+
+{
+  /*onClick={() => setListOpen((prevState) => !prevState)}
+            className={listOpen ? "arrow-down" : "arrow-up"} */
+}

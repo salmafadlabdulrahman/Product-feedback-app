@@ -1,23 +1,28 @@
-select {
-  appearance: none; /* Remove default appearance */
-  background-color: transparent; /* Make background transparent */
-  border: none; /* Remove border */
-  outline: none; /* Remove outline */
-  padding: 0; /* Remove default padding */
-  font-family: inherit; /* Use inherit font */
-  font-size: inherit; /* Use inherit font size */
-  cursor: pointer; /* Show pointer cursor */
-}
-
-.categories-list {
-  background-color: #f7f8fd;
-  width: 90%;
-  border-radius: 5px;
-  height: 50px;
-  padding-left: 1em;
-  margin-top: 1em;
+.select-container {
   display: flex;
   align-items: center;
+  position: relative;
   justify-content: space-between;
+  width: 90%;
+}
+
+select {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 50px;
+  background-color: #f7f8fd;
+  border-radius: 5px;
+  padding-left: 1em;
+  margin-top: 1em;
   padding-right: 1em;
+  
+}
+
+.select-list-btn {
+  position: absolute;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
