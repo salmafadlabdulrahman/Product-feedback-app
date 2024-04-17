@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/forms.css";
-import plusIcon from "../assets/shared/icon-new-feedback.svg";
+import editIcon from "../assets/shared/icon-edit-feedback.svg";
 
 function EditFeedbackForm() {
   const navigate = useNavigate();
@@ -99,7 +99,7 @@ function EditFeedbackForm() {
         </div>
       </div>
       <img
-        src={plusIcon}
+        src={editIcon}
         alt="plus icon to add feedback"
         className="absolute top-[80px] left-[43px]"
       />
