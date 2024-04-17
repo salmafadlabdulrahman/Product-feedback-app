@@ -1,13 +1,12 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import data from "../../data.json";
-import AddFeedbackBtn from "../components/AddFeedbackBtn";
 import FeedbackCard from "../components/FeedbackCard";
 import CommentsContainer from "../components/CommentsContainer";
 import AddComment from "../components/AddComment";
 
 function FeedbackDetails() {
   const params = useParams();
-  const navigate = useNavigate() 
+  const navigate = useNavigate();
   const commentData = data.productRequests[params.id - 1];
 
   return (
@@ -35,7 +34,11 @@ function FeedbackDetails() {
           Go Back
         </Link>
         <div className="text-white">
-          <AddFeedbackBtn bgColor={"#4661E6"} content={"Edit"} />
+          <Link to={`/edit-feedback/${params.id}`}>
+            <button className="bg-[#4661E6] px-[1.4em] py-[.7em] rounded-lg text-[.8em] font-bold cursor-pointer text-white">
+              Edit Feedback
+            </button>
+          </Link>
         </div>
       </div>
 

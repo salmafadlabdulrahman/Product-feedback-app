@@ -8,6 +8,7 @@ import Live from "./components/Live";
 import { MyContext } from "./MyContext";
 import { useState } from "react";
 import AddFeedbackForm from "./forms/AddFeedbackForm";
+import EditFeedbackForm from "./forms/EditFeedbackForm";
 
 function App() {
   const [addFeedbackForm, setAddFeedbackForm] = useState(false);
@@ -24,6 +25,7 @@ function App() {
               <Route path="live" element={<Live />} />
             </Route>
             <Route path="add-feedback" element={<AddFeedbackForm />} />
+            <Route path="/edit-feedback/:id" element={<EditFeedbackForm />} />
           </Routes>
         </BrowserRouter>
       </MyContext.Provider>
