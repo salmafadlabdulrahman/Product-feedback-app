@@ -1,18 +1,27 @@
 import { useState } from "react";
 import "../styles/navbar.css";
+import { filterCategories } from "../../utilis";
+import data from "../../data.json"
 
 function Categories() {
-  const [activeCategory, setActiveCategory] = useState(0);
-  const categories = ["All", "UI", "UX", "Enhancement", "Feature", "Bug"].map(
-    (categorie, index) => (
+  const [activeCategory, setActiveCategory] = useState(data.productRequests);
+
+  const filterList = function(categorie) {
+    const list = filterCategories(categorie);
+    return setActiveCategory(list);
+    
+  }
+
+  const categories = ["all", "ui", "ux", "enhancement", "feature", "bug"].map(
+    (category, index) => (
       <li
         key={index}
         className={`${
-          activeCategory === index ? "active" : ""
-        } text-[#4661E6] bg-[#f7f8fd] font-bold py-[.5em] px-[1.1em] rounded-lg text-[.9em] cursor-pointer`}
-        onClick={() => setActiveCategory(index)}
+          category === activeCategory[0].category ? "active" : ""
+        } text-[#4661E6] bg-[#f7f8fd] font-bold py-[.5em] px-[1.1em] rounded-lg text-[.9em] cursor-pointer capitalize`} 
+        onClick={() => filterList(category)}
       >
-        {categorie}
+        {category}
       </li>
     )
   );
