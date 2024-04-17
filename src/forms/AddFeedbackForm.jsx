@@ -1,9 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/forms.css";
-import { useState } from "react";
 
 function AddFeedbackForm() {
-  const [listOpen, setListOpen] = useState(false);
   const navigate = useNavigate();
   return (
     <div className="p-5">
@@ -68,14 +66,14 @@ function AddFeedbackForm() {
             className="pl-[1em] pt-[1em] bg-[#F7F8FD] mt-[1em] outline-none rounded-lg w-[90%]"
           />
         </div>
+
+        <div className="mt-[2em]">
+          <button className="bg-[#AD1FEA] w-[90%] block text-white h-[45px] rounded-xl font-semibold text-[.9em]">Add Feedback</button>
+          <button className="bg-[#3A4374] w-[90%] text-white h-[45px] rounded-xl font-semibold text-[.9em] mt-[1em]">Cancel</button>
+        </div>
       </div>
     </div>
   );
 }
 
 export default AddFeedbackForm;
-
-{
-  /*onClick={() => setListOpen((prevState) => !prevState)}
-            className={listOpen ? "arrow-down" : "arrow-up"} */
-}
