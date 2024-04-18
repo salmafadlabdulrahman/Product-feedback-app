@@ -44,7 +44,7 @@ function AddFeedback() {
         </h3>
         <Link to={"add-feedback"}>
           <button className="bg-[#AD1FEA] px-[1.4em] py-[.7em] rounded-lg text-[.8em] font-bold cursor-pointer text-white">
-            Add Feedback
+            + Add Feedback
           </button>
         </Link>
       </div>
