@@ -9,12 +9,14 @@ import { MyContext } from "./MyContext";
 import { useState } from "react";
 import AddFeedbackForm from "./forms/AddFeedbackForm";
 import EditFeedbackForm from "./forms/EditFeedbackForm";
+import data from "../data.json"
 
 function App() {
   const [addFeedbackForm, setAddFeedbackForm] = useState(false);
+  const [currentCategorie, setCurrentCategorie] = useState(data.productRequests)
   return (
     <>
-      <MyContext.Provider value={{addFeedbackForm, setAddFeedbackForm}}>
+      <MyContext.Provider value={{addFeedbackForm, setAddFeedbackForm, currentCategorie, setCurrentCategorie}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
