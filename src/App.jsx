@@ -9,18 +9,18 @@ import { MyContext } from "./MyContext";
 import { useState } from "react";
 import AddFeedbackForm from "./forms/AddFeedbackForm";
 import EditFeedbackForm from "./forms/EditFeedbackForm";
-import data from "../data.json"
+import data from "../data.json";
 
 function App() {
-  const list = JSON.parse(localStorage.getItem('comments'));
-  const defaultList = !list ? localStorage.setItem('comments', JSON.stringify(data.productRequests)) : list
-  const [currentCategorie, setCurrentCategorie] = useState(defaultList); //data.productRequests
-
-  //console.log(currentCategorie)
+  const list = JSON.parse(localStorage.getItem("comments"));
+  const defaultList = !list
+    ? localStorage.setItem("comments", JSON.stringify(data.productRequests))
+    : list;
+  const [currentCategorie, setCurrentCategorie] = useState(defaultList);
 
   return (
     <>
-      <MyContext.Provider value={{currentCategorie, setCurrentCategorie}}>
+      <MyContext.Provider value={{ currentCategorie, setCurrentCategorie }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
