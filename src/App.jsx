@@ -12,7 +12,11 @@ import EditFeedbackForm from "./forms/EditFeedbackForm";
 import data from "../data.json"
 
 function App() {
-  const [currentCategorie, setCurrentCategorie] = useState(data.productRequests);
+  const list = JSON.parse(localStorage.getItem('comments'));
+  const defaultList = !list ? localStorage.setItem('comments', JSON.stringify(data.productRequests)) : list
+  const [currentCategorie, setCurrentCategorie] = useState(defaultList); //data.productRequests
+
+  //console.log(currentCategorie)
 
   return (
     <>

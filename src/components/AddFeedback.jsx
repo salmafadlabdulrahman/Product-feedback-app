@@ -16,12 +16,13 @@ const sorting = [
 function AddFeedback() {
   const [listOpen, setListOpen] = useState(false);
   const [currentSortingType, setCurrentSortingType] = useState("Most Upvotes")
-  const {setCurrentCategorie} = useContext(MyContext);
+  const {currentCategorie, setCurrentCategorie} = useContext(MyContext);
 
 
   const updateFeedbackList = function(item) {
     setCurrentSortingType(item)
-    return setCurrentCategorie(prevList => sortComments(prevList, item))
+    localStorage.setItem("comments", JSON.stringify(currentCategorie))
+    return setCurrentCategorie(prevList => sortComments(prevList, item));
   }
   
 
