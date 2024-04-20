@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   const { currentCategorie } = useContext(MyContext);
+
   return (
     <div>
       <main className="main-container lg:flex gap-[3em] lg:w-[80%]">
