@@ -1,6 +1,7 @@
 import data from "./data.json";
 
 export const filterCategories = function (currCategory) {
+  if (currCategory === "all") return data.productRequests
   const list = data.productRequests.filter(
     (item) => item.category === currCategory
   );

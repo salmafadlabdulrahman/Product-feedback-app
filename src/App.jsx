@@ -17,10 +17,23 @@ function App() {
     ? localStorage.setItem("comments", JSON.stringify(data.productRequests))
     : list;
   const [currentCategorie, setCurrentCategorie] = useState(defaultList);
+  const request = JSON.parse(localStorage.getItem("currentRequest"));
+  const [currentRequest, setCurrentRequest] = useState(
+    !request
+      ? localStorage.setItem(
+          "currentRequest",
+          JSON.stringify({
+            category: "all",
+            roadmap: "in-progress",
+            sort: "Most Upvotes",
+          })
+        )
+      : request
+  );
 
   return (
     <>
-      <MyContext.Provider value={{ currentCategorie, setCurrentCategorie }}>
+      <MyContext.Provider value={{ currentCategorie, setCurrentCategorie, currentRequest, setCurrentRequest }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />

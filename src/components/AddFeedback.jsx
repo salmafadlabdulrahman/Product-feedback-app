@@ -15,8 +15,8 @@ const sorting = [
 
 function AddFeedback() {
   const [listOpen, setListOpen] = useState(false);
-  const request = JSON.parse(localStorage.getItem("currentRequest"));
-  const [currentRequest, setCurrentRequest] = useState(
+  //const request = JSON.parse(localStorage.getItem("currentRequest"));
+  /*const [currentRequest, setCurrentRequest] = useState(
     !request
       ? localStorage.setItem(
           "currentRequest",
@@ -27,9 +27,9 @@ function AddFeedback() {
           })
         )
       : request
-  );
+  );*/
 
-  const { currentCategorie, setCurrentCategorie } = useContext(MyContext);
+  const { currentCategorie, setCurrentCategorie, currentRequest, setCurrentRequest } = useContext(MyContext);
 
   const updateFeedbackList = function (item) {
     setCurrentRequest((prevState) => ({
