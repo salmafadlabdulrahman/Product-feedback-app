@@ -6,9 +6,11 @@ import { useState } from "react";
 function AddFeedbackForm() {
   const navigate = useNavigate();
   const [feedbackTitle, setFeedbackTitle] = useState("");
+  const [feedbackTitleErrMsg, setFeedbackTitleErrMsg] = useState("");
   const [feedbackTouched, setFeedbackTouched] = useState(false);
 
   const [feedbackDetails, setFeedbackDetails] = useState("");
+  const [feedbackDetailsErrMsg, setFeedbackDetailsErrMsg] = useState("");
   const [feedbackDetailsTouched, setFeedbackDetailsTouched] = useState(false);
 
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -16,11 +18,13 @@ function AddFeedbackForm() {
   const updateInputVal = function (event) {
     setFeedbackTitle(event.target.value);
     setFeedbackTouched(true);
+    setFeedbackTitleErrMsg("Can't be empty");
   };
 
   const updateFeedbackVal = function (event) {
     setFeedbackDetails(event.target.value);
     setFeedbackDetailsTouched(true);
+    setFeedbackDetailsErrMsg("Can't be empty")
   };
 
   const updateSelectedCategory = function (event) {
@@ -28,22 +32,32 @@ function AddFeedbackForm() {
   };
 
   const handleSubmit = function (event) {
-    event.preventDefault();
-    const feedbackList = JSON.parse(localStorage.getItem("comments")) || [];
-    const newList = {
-      id: feedbackList.length + 1,
-      title: feedbackTitle,
-      category: selectedCategory,
-      upvotes: 0,
-      upvoted: false,
-      status: "suggestion",
-      description: feedbackDetails,
-      comments: []
+    if (feedbackTitle === "") {
+      setFeedbackTitleErrMsg("Can't be empty");
+      event.preventDefault();
     }
-    
-    feedbackList.push(newList)
-    localStorage.setItem("comments", JSON.stringify(feedbackList));
 
+    if (feedbackDetails === "") {
+      setFeedbackDetailsErrMsg("Can't be empty");
+      event.preventDefault();
+    }
+
+    if (feedbackTitle && feedbackDetails) {
+      const feedbackList = JSON.parse(localStorage.getItem("comments")) || [];
+      const newList = {
+        id: feedbackList.length + 1,
+        title: feedbackTitle,
+        category: selectedCategory,
+        upvotes: 0,
+        upvoted: false,
+        status: "suggestion",
+        description: feedbackDetails,
+        comments: [],
+      };
+
+      feedbackList.push(newList);
+      localStorage.setItem("comments", JSON.stringify(feedbackList));
+    }
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -87,7 +101,7 @@ function AddFeedbackForm() {
               onChange={updateInputVal}
             />
             {feedbackTitle === "" && feedbackTouched ? (
-              <p className="text-[#FF0000]">Can&apos;t be empty</p>
+              <p className="text-[#FF0000]">{feedbackTitleErrMsg}</p>
             ) : (
               ""
             )}
@@ -130,7 +144,7 @@ function AddFeedbackForm() {
                 onChange={updateFeedbackVal}
               />
               {feedbackDetails === "" && feedbackDetailsTouched ? (
-                <p className="text-[#FF0000]">Can&apos;t be empty</p>
+                <p className="text-[#FF0000]">{feedbackDetailsErrMsg}</p>
               ) : (
                 ""
               )}
@@ -140,7 +154,7 @@ function AddFeedbackForm() {
               <button className="bg-[#AD1FEA] w-[90%] block text-white h-[45px] rounded-xl font-semibold text-[.9em]">
                 Add Feedback
               </button>
-              <button className="bg-[#3A4374] w-[90%] text-white h-[45px] rounded-xl font-semibold text-[.9em] mt-[1em]">
+              <button className="bg-[#3A4374] w-[90%] text-white h-[45px] rounded-xl font-semibold text-[.9em] mt-[1em]" onClick={() => navigate(-1)}>
                 Cancel
               </button>
             </div>
