@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../styles/feedback.css";
 import suggestionsIcon from "../assets/shared/suggestions/icon-suggestions.svg";
 import checkIcon from "../assets/shared/icon-check.svg";
@@ -15,16 +15,34 @@ const sorting = [
 
 function AddFeedback() {
   const [listOpen, setListOpen] = useState(false);
-  const [currentSortingType, setCurrentSortingType] = useState("Most Upvotes")
-  const {currentCategorie, setCurrentCategorie} = useContext(MyContext);
+  const request = JSON.parse(localStorage.getItem("currentRequest"));
+  const [currentRequest, setCurrentRequest] = useState(
+    !request
+      ? localStorage.setItem(
+          "currentRequest",
+          JSON.stringify({
+            category: "all",
+            roadmap: "in-progress",
+            sort: "Most Upvotes",
+          })
+        )
+      : request
+  );
 
+  const { currentCategorie, setCurrentCategorie } = useContext(MyContext);
 
-  const updateFeedbackList = function(item) {
-    setCurrentSortingType(item)
-    localStorage.setItem("comments", JSON.stringify(currentCategorie))
-    return setCurrentCategorie(prevList => sortComments(prevList, item));
-  }
-  
+  const updateFeedbackList = function (item) {
+    setCurrentRequest((prevState) => ({
+      ...prevState,
+      sort: item,
+    }));
+    setCurrentCategorie((prevList) => sortComments(prevList, item));
+  };
+
+  useEffect(() => {
+    localStorage.setItem("currentRequest", JSON.stringify(currentRequest));
+    localStorage.setItem("comments", JSON.stringify(currentCategorie));
+  }, [currentCategorie, currentRequest, setCurrentCategorie]);
 
   return (
     <div>
@@ -33,7 +51,7 @@ function AddFeedback() {
           <img src={suggestionsIcon} alt="suggestions icon" />7 Suggestions
         </h3>
         <h3 className="flex items-center gap-2">
-          Sort by: {currentSortingType}{" "}
+          Sort by: {currentRequest?.sort}{" "}
           <button
             onClick={() => setListOpen((prevState) => !prevState)}
             className={listOpen ? "arrow-down" : "arrow-up"}
@@ -71,7 +89,11 @@ function AddFeedback() {
                 onClick={() => updateFeedbackList(item)}
               >
                 {item}
-                {item === currentSortingType ? <img src={checkIcon} alt="check icon" /> : ""}
+                {item === currentRequest.sort ? (
+                  <img src={checkIcon} alt="check icon" />
+                ) : (
+                  ""
+                )}
               </li>
             ))}
           </ul>
