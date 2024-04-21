@@ -1,11 +1,11 @@
 import Comment from "../components/Comment";
 import ReplyComment from "./ReplyComment";
-import "../styles/comment.css"
+import "../styles/comment.css";
 
 function CommentsContainer({ commentData }) {
   return (
     <div>
-      <div className="comments-container bg-white mt-6 md:max-w-[750px] w-[90%] m-auto rounded-lg p-[2em]">
+      <div className="bg-white mt-6 md:max-w-[750px] m-auto w-[90%] md:w-[100%] rounded-lg p-[2em] ">
         <h1 className="text-[#3A4374] font-bold text-[1.5em]">
           {commentData.comments.length} Comment
           {commentData.comments.length > 1 ? "s" : ""}
@@ -31,7 +31,11 @@ function CommentsContainer({ commentData }) {
             </div>
 
             <div className="replies-container">
-              {item.replies ? item.replies.map((reply, index) => <ReplyComment key={index} reply={reply} />) : ""}
+              {item.replies
+                ? item.replies.map((reply, index) => (
+                    <ReplyComment key={index} reply={reply} />
+                  ))
+                : ""}
             </div>
           </div>
         ))}

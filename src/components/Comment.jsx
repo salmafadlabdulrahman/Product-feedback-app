@@ -33,8 +33,14 @@ function Comment({ userImg, name, userName, content }) {
 
         {reply ? (
           <div className="flex items-start  gap-4 mt-[1em]">
-            <textarea rows={3} cols={70} className="bg-[#f7f8fd] rounded-xl outline-none pl-2" />
-            <button className="bg-[#AD1EFA] text-white font-semibold py-[.7em] px-[1.5em] rounded-xl">Post Reply</button>
+            <textarea
+              rows={3}
+              cols={70}
+              className="bg-[#f7f8fd] rounded-xl outline-none pl-2"
+            />
+            <button className="bg-[#AD1EFA] text-white font-semibold py-[.7em] px-[1.5em] rounded-xl">
+              Post Reply
+            </button>
           </div>
         ) : (
           ""
