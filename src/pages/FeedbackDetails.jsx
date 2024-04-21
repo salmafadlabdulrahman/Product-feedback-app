@@ -1,5 +1,4 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import data from "../../data.json";
 import FeedbackCard from "../components/FeedbackCard";
 import CommentsContainer from "../components/CommentsContainer";
 import AddComment from "../components/AddComment";
@@ -7,7 +6,8 @@ import AddComment from "../components/AddComment";
 function FeedbackDetails() {
   const params = useParams();
   const navigate = useNavigate();
-  const commentData = data.productRequests[params.id - 1];
+  const commentData = JSON.parse(localStorage.getItem("comments"));
+  const currentData = commentData[params.id - 1];
 
   return (
     <div>
@@ -44,16 +44,16 @@ function FeedbackDetails() {
 
       <div className="current-comment">
         <FeedbackCard
-          id={commentData.id}
-          title={commentData.title}
-          description={commentData.description}
-          category={commentData.category}
-          upvotes={commentData.upvotes}
-          commentsCount={commentData.comments.length}
+          id={currentData.id}
+          title={currentData.title}
+          description={currentData.description}
+          category={currentData.category}
+          upvotes={currentData.upvotes}
+          commentsCount={currentData.comments.length}
         />
       </div>
 
-      <CommentsContainer commentData={commentData} />
+      <CommentsContainer commentData={currentData} />
 
       <AddComment />
     </div>

@@ -31,15 +31,15 @@ function AddFeedbackForm() {
     setSelectedCategory(() => event.target.value);
   };
 
-  const handleSubmit = function (event) {
+  const handleSubmit = function () {
     if (feedbackTitle === "") {
       setFeedbackTitleErrMsg("Can't be empty");
-      event.preventDefault();
+      return
     }
 
     if (feedbackDetails === "") {
       setFeedbackDetailsErrMsg("Can't be empty");
-      event.preventDefault();
+      return
     }
 
     if (feedbackTitle && feedbackDetails) {
@@ -57,6 +57,7 @@ function AddFeedbackForm() {
 
       feedbackList.push(newList);
       localStorage.setItem("comments", JSON.stringify(feedbackList));
+      navigate("/")
     }
   };
   return (
