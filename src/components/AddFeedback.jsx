@@ -15,20 +15,6 @@ const sorting = [
 
 function AddFeedback() {
   const [listOpen, setListOpen] = useState(false);
-  //const request = JSON.parse(localStorage.getItem("currentRequest"));
-  /*const [currentRequest, setCurrentRequest] = useState(
-    !request
-      ? localStorage.setItem(
-          "currentRequest",
-          JSON.stringify({
-            category: "all",
-            roadmap: "in-progress",
-            sort: "Most Upvotes",
-          })
-        )
-      : request
-  );*/
-
   const { currentCategorie, setCurrentCategorie, currentRequest, setCurrentRequest } = useContext(MyContext);
 
   const updateFeedbackList = function (item) {
