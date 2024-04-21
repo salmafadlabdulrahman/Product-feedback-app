@@ -49,12 +49,12 @@ function EditFeedbackForm() {
   const handleSubmit = function () {
     if (feedbackTitle === "") {
       setFeedbackTitleErrMsg("Can't be empty");
-      return
+      return;
     }
 
     if (feedbackDetails === "") {
       setFeedbackDetailsErrMsg("Can't be empty");
-      return
+      return;
     }
 
     if (feedbackTitle && feedbackDetails) {
@@ -72,7 +72,7 @@ function EditFeedbackForm() {
         return feedback;
       });
       localStorage.setItem("comments", JSON.stringify(updatedList));
-      navigate("/")
+      navigate("/");
     }
   };
 
@@ -188,15 +188,18 @@ function EditFeedbackForm() {
               )}
             </div>
 
-            <div className="mt-[2em] flex justify-between items-center pr-[2em]">
-              <button className="w-[130px] h-[45px] bg-[#D73737] text-white rounded-xl font-semibold">
+            <div className="flex flex-col items-center mt-3 w-[90%] md:flex-row ">
+              <button className=" bg-[#D73737] text-white rounded-lg font-semibold w-[100%] md:w-[140px] h-[40px] mb-2">
                 Delete
               </button>
-              <div className="flex items-center gap-3">
-                <button className="bg-[#AD1FEA] w-[140px] block text-white h-[45px] rounded-xl font-semibold text-[.9em]">
+              <div className="w-[100%] md:flex md:items-center justify-end gap-3">
+                <button className="bg-[#AD1FEA] text-white rounded-lg font-semibold text-[.9em] block w-[100%] h-[40px] md:w-[140px] mb-2">
                   Save Changes
                 </button>
-                <button className="bg-[#3A4374] w-[130px] text-white h-[45px] rounded-xl font-semibold text-[.9em]">
+                <button
+                  className="bg-[#3A4374] text-white rounded-lg font-semibold text-[.9em] block w-[100%] h-[40px] md:w-[140px] mb-2"
+                  onClick={() => navigate(-1)}
+                >
                   Cancel
                 </button>
               </div>
