@@ -10,6 +10,7 @@ import { useState } from "react";
 import AddFeedbackForm from "./forms/AddFeedbackForm";
 import EditFeedbackForm from "./forms/EditFeedbackForm";
 import data from "../data.json";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const list = JSON.parse(localStorage.getItem("comments"));
@@ -33,7 +34,14 @@ function App() {
 
   return (
     <>
-      <MyContext.Provider value={{ currentCategorie, setCurrentCategorie, currentRequest, setCurrentRequest }}>
+      <MyContext.Provider
+        value={{
+          currentCategorie,
+          setCurrentCategorie,
+          currentRequest,
+          setCurrentRequest,
+        }}
+      >
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />

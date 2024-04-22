@@ -21,20 +21,16 @@ function EditFeedbackForm() {
   const [selectedStatus, setSelectedStatus] = useState(currentFeedback.status);
 
   const [feedbackTitleErrMsg, setFeedbackTitleErrMsg] = useState("");
-  const [feedbackTouched, setFeedbackTouched] = useState(false);
 
   const [feedbackDetailsErrMsg, setFeedbackDetailsErrMsg] = useState("");
-  const [feedbackDetailsTouched, setFeedbackDetailsTouched] = useState(false);
 
   const updateInputVal = function (event) {
     setFeedbackTitle(event.target.value);
-    setFeedbackTouched(true);
     setFeedbackTitleErrMsg("Can't be empty");
   };
 
   const updateFeedbackVal = function (event) {
     setFeedbackDetails(event.target.value);
-    setFeedbackDetailsTouched(true);
     setFeedbackDetailsErrMsg("Can't be empty");
   };
 
@@ -46,15 +42,14 @@ function EditFeedbackForm() {
     setSelectedStatus(() => event.target.value);
   };
 
-  const handleSubmit = function () {
+  const handleSubmit = function (event) {
+    event.preventDefault();
     if (feedbackTitle === "") {
       setFeedbackTitleErrMsg("Can't be empty");
-      return;
     }
 
     if (feedbackDetails === "") {
       setFeedbackDetailsErrMsg("Can't be empty");
-      return;
     }
 
     if (feedbackTitle && feedbackDetails) {
@@ -72,7 +67,7 @@ function EditFeedbackForm() {
         return feedback;
       });
       localStorage.setItem("comments", JSON.stringify(updatedList));
-      navigate("/");
+      navigate(`/feedbackdetails/${params.id}`);
     }
   };
 
@@ -117,7 +112,7 @@ function EditFeedbackForm() {
               onChange={updateInputVal}
               className="bg-[#F7F8FD] mt-[1em] w-[90%] h-[40px] rounded-lg pl-2 outline-none"
             />
-            {feedbackTitle === "" && feedbackTouched ? (
+            {feedbackTitle === "" ? (
               <p className="text-[#FF0000]">{feedbackTitleErrMsg}</p>
             ) : (
               ""
@@ -181,7 +176,7 @@ function EditFeedbackForm() {
                 onChange={updateFeedbackVal}
                 value={feedbackDetails}
               />
-              {feedbackDetails === "" && feedbackDetailsTouched ? (
+              {feedbackDetails === "" ? (
                 <p className="text-[#FF0000]">{feedbackDetailsErrMsg}</p>
               ) : (
                 ""
@@ -217,9 +212,3 @@ function EditFeedbackForm() {
 }
 
 export default EditFeedbackForm;
-
-
-/*const deleteFeedback = function () {
-  /*const updatedList = feedbacks.slice(0, currentFeedback.id - 1, 1);
-  localStorage.setItem("comments", JSON.stringify(updatedList));
-};*/
