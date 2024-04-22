@@ -31,15 +31,15 @@ function AddFeedbackForm() {
     setSelectedCategory(() => event.target.value);
   };
 
-  const handleSubmit = function () {
+  const handleSubmit = function (event) {
     if (feedbackTitle === "") {
       setFeedbackTitleErrMsg("Can't be empty");
-      return
+      event.preventDefault()
     }
 
     if (feedbackDetails === "") {
       setFeedbackDetailsErrMsg("Can't be empty");
-      return
+      event.preventDefault()
     }
 
     if (feedbackTitle && feedbackDetails) {

@@ -71,7 +71,7 @@ function AddFeedback() {
             {sorting.map((item, index) => (
               <li
                 key={index}
-                className="text-[#647196] text-[.8em] p-[.9em] flex items-center justify-between"
+                className="text-[#647196] text-[.8em] p-[.9em] flex items-center justify-between cursor-pointer"
                 onClick={() => updateFeedbackList(item)}
               >
                 {item}

@@ -217,3 +217,9 @@ function EditFeedbackForm() {
 }
 
 export default EditFeedbackForm;
+
+
+/*const deleteFeedback = function () {
+  /*const updatedList = feedbacks.slice(0, currentFeedback.id - 1, 1);
+  localStorage.setItem("comments", JSON.stringify(updatedList));
+};*/
