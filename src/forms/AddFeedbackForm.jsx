@@ -7,24 +7,20 @@ function AddFeedbackForm() {
   const navigate = useNavigate();
   const [feedbackTitle, setFeedbackTitle] = useState("");
   const [feedbackTitleErrMsg, setFeedbackTitleErrMsg] = useState("");
-  const [feedbackTouched, setFeedbackTouched] = useState(false);
 
   const [feedbackDetails, setFeedbackDetails] = useState("");
   const [feedbackDetailsErrMsg, setFeedbackDetailsErrMsg] = useState("");
-  const [feedbackDetailsTouched, setFeedbackDetailsTouched] = useState(false);
 
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const updateInputVal = function (event) {
     setFeedbackTitle(event.target.value);
-    setFeedbackTouched(true);
     setFeedbackTitleErrMsg("Can't be empty");
   };
 
   const updateFeedbackVal = function (event) {
     setFeedbackDetails(event.target.value);
-    setFeedbackDetailsTouched(true);
-    setFeedbackDetailsErrMsg("Can't be empty")
+    setFeedbackDetailsErrMsg("Can't be empty");
   };
 
   const updateSelectedCategory = function (event) {
@@ -32,14 +28,13 @@ function AddFeedbackForm() {
   };
 
   const handleSubmit = function (event) {
+    event.preventDefault();
     if (feedbackTitle === "") {
-      setFeedbackTitleErrMsg("Can't be empty");
-      event.preventDefault()
+      setFeedbackTitleErrMsg(() => "Can't be empty");
     }
 
     if (feedbackDetails === "") {
-      setFeedbackDetailsErrMsg("Can't be empty");
-      event.preventDefault()
+      setFeedbackDetailsErrMsg(() => "Can't be empty");
     }
 
     if (feedbackTitle && feedbackDetails) {
@@ -57,9 +52,9 @@ function AddFeedbackForm() {
 
       feedbackList.push(newList);
       localStorage.setItem("comments", JSON.stringify(feedbackList));
-      navigate("/")
     }
   };
+  
   return (
     <form onSubmit={handleSubmit}>
       <div className="relative lg:w-[50%] lg:m-auto">
@@ -101,7 +96,7 @@ function AddFeedbackForm() {
               value={feedbackTitle}
               onChange={updateInputVal}
             />
-            {feedbackTitle === "" && feedbackTouched ? (
+            {feedbackTitle === "" ? (
               <p className="text-[#FF0000]">{feedbackTitleErrMsg}</p>
             ) : (
               ""
@@ -144,7 +139,7 @@ function AddFeedbackForm() {
                 className="pl-[1em] pt-[1em] bg-[#F7F8FD] mt-[1em] outline-none rounded-lg w-[90%]"
                 onChange={updateFeedbackVal}
               />
-              {feedbackDetails === "" && feedbackDetailsTouched ? (
+              {feedbackDetails === "" ? (
                 <p className="text-[#FF0000]">{feedbackDetailsErrMsg}</p>
               ) : (
                 ""
@@ -155,7 +150,10 @@ function AddFeedbackForm() {
               <button className="bg-[#AD1FEA] w-[90%] block text-white h-[45px] rounded-xl font-semibold text-[.9em]">
                 Add Feedback
               </button>
-              <button className="bg-[#3A4374] w-[90%] text-white h-[45px] rounded-xl font-semibold text-[.9em] mt-[1em]" onClick={() => navigate(-1)}>
+              <button
+                className="bg-[#3A4374] w-[90%] text-white h-[45px] rounded-xl font-semibold text-[.9em] mt-[1em]"
+                onClick={() => navigate(-1)}
+              >
                 Cancel
               </button>
             </div>
