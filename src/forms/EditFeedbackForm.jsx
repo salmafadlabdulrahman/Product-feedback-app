@@ -1,12 +1,11 @@
-import { Link, redirect, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/forms.css";
 import editIcon from "../assets/shared/icon-edit-feedback.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function EditFeedbackForm() {
   const navigate = useNavigate();
   const params = useParams();
-  //const history = useHistory();
 
   const feedbacks = JSON.parse(localStorage.getItem("comments")) || [];
   const currentFeedback = feedbacks.filter(
@@ -25,8 +24,6 @@ function EditFeedbackForm() {
   const [feedbackTitleErrMsg, setFeedbackTitleErrMsg] = useState("");
 
   const [feedbackDetailsErrMsg, setFeedbackDetailsErrMsg] = useState("");
-  const [deletetedFeedback, setDeletedFeedback] = useState(false);
-  const [updatedList, setUpdatedList] = useState(false);
 
   const updateInputVal = function (event) {
     setFeedbackTitle(event.target.value);
@@ -73,20 +70,7 @@ function EditFeedbackForm() {
         return feedback;
       });
       localStorage.setItem("comments", JSON.stringify(updatedList));
-      setUpdatedList(true);
-      //navigate(`/feedbackdetails/${params.id}`);
-      //await navigate(-2)
-    }
-  };
-
-  /*if (updatedList === true) {
-    redirect("/");
-  }*/
-
-  const loader = async () => {
-    const user = await handleSubmit();
-    if (user) {
-      return redirect("/");
+      window.location.href = "/";
     }
   };
 
@@ -98,13 +82,9 @@ function EditFeedbackForm() {
   const deleteFeedback = function (event) {
     event.preventDefault();
     const feedbackList = JSON.parse(localStorage.getItem("comments")) || [];
-
-    // Filter out the feedback item with the specified id
-    feedbackList.filter((feedback) => feedback.id !== params.id);
-
-    // Save the updated list to local storage
-    localStorage.setItem("comments", JSON.stringify(feedbackList));
-    console.log(feedbackList);
+    const updatedList = feedbackList.filter((feedback) => feedback.id !== parseInt(params.id));
+    localStorage.setItem("comments", JSON.stringify(updatedList));
+    window.location.href = "/"
   };
 
   return (
@@ -229,7 +209,7 @@ function EditFeedbackForm() {
               <div className="w-[100%] md:flex md:items-center justify-end gap-3">
                 <button
                   className="bg-[#AD1FEA] text-white rounded-lg font-semibold text-[.9em] block w-[100%] h-[40px] md:w-[140px] mb-2"
-                  onClick={loader}
+                  onClick={handleSubmit}
                 >
                   Save Changes
                 </button>

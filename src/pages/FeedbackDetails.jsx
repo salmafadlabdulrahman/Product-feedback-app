@@ -11,19 +11,19 @@ function FeedbackDetails() {
     (data) => data.id === parseInt(params.id)
   );
 
-  /*const goBack = function() {
+  const goBack = function() {
     navigate("/")
-  }*/
+  }
 
-  const cancel = function (event) {
-    //event.preventDefault();
-    navigate(-2);
+  const cancel = function () {
+    navigate(-1)
+    //window.location.href = "/"
   };
 
   return (
     <div>
       <div className="nav-links flex items-center justify-between p-[2em] md:w-[750px] md:m-auto md:p-0 md:pt-[4em]">
-          <Link className="flex items-center gap-2 text-[#4661E6] font-semibold text-[.9em]">
+          <Link className="flex items-center gap-2 text-[#4661E6] font-semibold text-[.9em]" onClick={cancel}>
             {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
