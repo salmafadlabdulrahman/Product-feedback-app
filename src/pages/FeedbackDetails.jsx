@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate, Navigate } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import FeedbackCard from "../components/FeedbackCard";
 import CommentsContainer from "../components/CommentsContainer";
 import AddComment from "../components/AddComment";
@@ -11,13 +11,8 @@ function FeedbackDetails() {
     (data) => data.id === parseInt(params.id)
   );
 
-  const goBack = function() {
-    navigate("/")
-  }
-
   const cancel = function () {
     navigate(-1)
-    //window.location.href = "/"
   };
 
   return (
