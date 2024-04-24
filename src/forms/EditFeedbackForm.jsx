@@ -1,28 +1,32 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, redirect, useNavigate, useParams } from "react-router-dom";
 import "../styles/forms.css";
 import editIcon from "../assets/shared/icon-edit-feedback.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function EditFeedbackForm() {
   const navigate = useNavigate();
   const params = useParams();
+  //const history = useHistory();
+
   const feedbacks = JSON.parse(localStorage.getItem("comments")) || [];
   const currentFeedback = feedbacks.filter(
     (feedback) => feedback.id === parseInt(params.id)
   )[0];
 
-  const [feedbackTitle, setFeedbackTitle] = useState(currentFeedback.title);
+  const [feedbackTitle, setFeedbackTitle] = useState(currentFeedback?.title);
   const [selectedCategory, setSelectedCategory] = useState(
-    currentFeedback.category
+    currentFeedback?.category
   );
   const [feedbackDetails, setFeedbackDetails] = useState(
-    currentFeedback.description
+    currentFeedback?.description
   );
-  const [selectedStatus, setSelectedStatus] = useState(currentFeedback.status);
+  const [selectedStatus, setSelectedStatus] = useState(currentFeedback?.status);
 
   const [feedbackTitleErrMsg, setFeedbackTitleErrMsg] = useState("");
 
   const [feedbackDetailsErrMsg, setFeedbackDetailsErrMsg] = useState("");
+  const [deletetedFeedback, setDeletedFeedback] = useState(false);
+  const [updatedList, setUpdatedList] = useState(false);
 
   const updateInputVal = function (event) {
     setFeedbackTitle(event.target.value);
@@ -46,10 +50,12 @@ function EditFeedbackForm() {
     event.preventDefault();
     if (feedbackTitle === "") {
       setFeedbackTitleErrMsg("Can't be empty");
+      event.preventDefault();
     }
 
     if (feedbackDetails === "") {
       setFeedbackDetailsErrMsg("Can't be empty");
+      event.preventDefault();
     }
 
     if (feedbackTitle && feedbackDetails) {
@@ -67,12 +73,42 @@ function EditFeedbackForm() {
         return feedback;
       });
       localStorage.setItem("comments", JSON.stringify(updatedList));
-      navigate(`/feedbackdetails/${params.id}`);
+      setUpdatedList(true);
+      //navigate(`/feedbackdetails/${params.id}`);
+      //await navigate(-2)
     }
   };
 
+  /*if (updatedList === true) {
+    redirect("/");
+  }*/
+
+  const loader = async () => {
+    const user = await handleSubmit();
+    if (user) {
+      return redirect("/");
+    }
+  };
+
+  const cancel = function (event) {
+    event.preventDefault();
+    navigate(-1);
+  };
+
+  const deleteFeedback = function (event) {
+    event.preventDefault();
+    const feedbackList = JSON.parse(localStorage.getItem("comments")) || [];
+
+    // Filter out the feedback item with the specified id
+    feedbackList.filter((feedback) => feedback.id !== params.id);
+
+    // Save the updated list to local storage
+    localStorage.setItem("comments", JSON.stringify(feedbackList));
+    console.log(feedbackList);
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <div className="relative lg:w-[50%] lg:m-auto">
         <div className="p-5 ">
           <Link
@@ -184,16 +220,22 @@ function EditFeedbackForm() {
             </div>
 
             <div className="flex flex-col items-center mt-3 w-[90%] md:flex-row ">
-              <button className=" bg-[#D73737] text-white rounded-lg font-semibold w-[100%] md:w-[140px] h-[40px] mb-2">
+              <button
+                className=" bg-[#D73737] text-white rounded-lg font-semibold w-[100%] md:w-[140px] h-[40px] mb-2"
+                onClick={deleteFeedback}
+              >
                 Delete
               </button>
               <div className="w-[100%] md:flex md:items-center justify-end gap-3">
-                <button className="bg-[#AD1FEA] text-white rounded-lg font-semibold text-[.9em] block w-[100%] h-[40px] md:w-[140px] mb-2">
+                <button
+                  className="bg-[#AD1FEA] text-white rounded-lg font-semibold text-[.9em] block w-[100%] h-[40px] md:w-[140px] mb-2"
+                  onClick={loader}
+                >
                   Save Changes
                 </button>
                 <button
                   className="bg-[#3A4374] text-white rounded-lg font-semibold text-[.9em] block w-[100%] h-[40px] md:w-[140px] mb-2"
-                  onClick={() => navigate(-1)}
+                  onClick={cancel}
                 >
                   Cancel
                 </button>
