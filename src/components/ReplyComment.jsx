@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "../styles/comment.css";
-import currentUserData from "../../data.json";
+//import currentUserData from "../../data.json";
 
 function ReplyComment({ reply, commentData }) {
   const [replyComment, setReplyComment] = useState(false);
   const [replyContent, setReplyContent] = useState("");
 
-  const currentUser = currentUserData.currentUser;
+  //const currentUser = currentUserData.currentUser;
 
   const addReply = function () {
     const feedbacks = JSON.parse(localStorage.getItem("comments")) || [];
@@ -14,11 +14,11 @@ function ReplyComment({ reply, commentData }) {
     const newReply = {
       content: replyContent,
       replyingTo: reply.user.username,
-      user: {
-        image: currentUser.image,
-        name: currentUser.name,
-        username: currentUser.username,
-      },
+      "user": {
+        "image": "/user-images/image-zena.jpg",
+        "name": "Zena Kelley",
+        "username": "velvetround"
+      }
     };
 
     const updatedList = feedbacks.map((feedback) => {

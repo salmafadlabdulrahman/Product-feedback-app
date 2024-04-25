@@ -1,8 +1,5 @@
 import { useState } from "react";
 import "../styles/comment.css";
-import currentUserData from "../../data.json";
-
-const currentUser = currentUserData.currentUser;
 
 function Comment({ userImg, name, userName, content, commentData }) {
   const [reply, setReply] = useState(false);
@@ -15,9 +12,9 @@ function Comment({ userImg, name, userName, content, commentData }) {
       content: replyContent,
       replyingTo: userName,
       user: {
-        image: currentUser.image,
-        name: currentUser.name,
-        username: currentUser.username,
+        image: "/user-images/image-zena.jpg",
+        name: "Zena Kelley",
+        username: "velvetround",
       },
     };
 
