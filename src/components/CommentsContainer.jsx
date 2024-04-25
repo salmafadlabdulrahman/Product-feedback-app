@@ -34,7 +34,7 @@ function CommentsContainer({ commentData }) {
             <div className="replies-container">
               {item.replies
                 ? item.replies.map((reply, index) => (
-                    <ReplyComment key={index} reply={reply} />
+                    <ReplyComment key={index} reply={reply} commentData={commentData} />
                   ))
                 : ""}
             </div>

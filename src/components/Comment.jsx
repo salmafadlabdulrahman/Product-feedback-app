@@ -8,7 +8,6 @@ function Comment({ userImg, name, userName, content, commentData }) {
   const [reply, setReply] = useState(false);
   const [replyContent, setReplyContent] = useState("");
 
-
   const addReply = function () {
     const feedbacks = JSON.parse(localStorage.getItem("comments")) || [];
 

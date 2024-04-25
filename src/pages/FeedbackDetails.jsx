@@ -1,18 +1,17 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import FeedbackCard from "../components/FeedbackCard";
 import CommentsContainer from "../components/CommentsContainer";
 import AddComment from "../components/AddComment";
 
 function FeedbackDetails() {
   const params = useParams();
-  const navigate = useNavigate();
   const commentData = JSON.parse(localStorage.getItem("comments")) || [];
   const currentData = commentData?.find(
     (data) => data?.id === parseInt(params.id)
   );
 
   const cancel = function () {
-    navigate(-1)
+    window.location.href = "/"
   };
 
   return (
