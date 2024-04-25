@@ -1,8 +1,54 @@
 import { useState } from "react";
 import "../styles/comment.css";
+import currentUserData from "../../data.json";
 
-function Comment({ userImg, name, userName, content }) {
+const currentUser = currentUserData.currentUser;
+
+function Comment({ userImg, name, userName, content, commentData }) {
   const [reply, setReply] = useState(false);
+  const [replyContent, setReplyContent] = useState("");
+
+
+  const addReply = function () {
+    const feedbacks = JSON.parse(localStorage.getItem("comments")) || [];
+
+    const newReply = {
+      content: replyContent,
+      replyingTo: userName,
+      user: {
+        image: currentUser.image,
+        name: currentUser.name,
+        username: currentUser.username,
+      },
+    };
+
+    const updatedList = feedbacks.map((feedback) => {
+      if (feedback.id === commentData.id) {
+        const updatedComments = feedback.comments || [];
+        const updatedReplies = updatedComments.map((comment) => {
+          if (comment.user.username === userName) {
+            return {
+              ...comment,
+              replies: comment.replies
+                ? [...comment.replies, newReply]
+                : [newReply],
+            };
+          }
+          return comment;
+        });
+
+        return {
+          ...feedback,
+          comments: updatedReplies,
+        };
+      }
+
+      return feedback;
+    });
+
+    localStorage.setItem("comments", JSON.stringify(updatedList));
+  };
+
   return (
     <div>
       <div className="comment-content">
@@ -32,16 +78,28 @@ function Comment({ userImg, name, userName, content }) {
         </div>
 
         {reply ? (
-          <div className="flex items-start  gap-4 mt-[1em]">
-            <textarea
-              rows={3}
-              cols={70}
-              className="bg-[#f7f8fd] rounded-xl outline-none pl-2"
-            />
-            <button className="bg-[#AD1EFA] text-white font-semibold py-[.7em] px-[1.5em] rounded-xl">
-              Post Reply
-            </button>
-          </div>
+          <form>
+            <div className="flex items-start  gap-4 mt-[1em]">
+              <textarea
+                rows={3}
+                cols={70}
+                className="bg-[#f7f8fd] rounded-xl outline-none pl-2"
+                onChange={(event) => setReplyContent(event.target.value)}
+                value={replyContent}
+              />
+              <button
+                className="bg-[#AD1EFA] text-white font-semibold py-[.7em] px-[1.5em] rounded-xl"
+                style={{
+                  cursor: replyContent === "" ? "not-allowed" : "pointer",
+                  opacity: replyContent === "" ? "0.6" : "1",
+                }}
+                onClick={addReply}
+                disabled={replyContent === ""}
+              >
+                Post Reply
+              </button>
+            </div>
+          </form>
         ) : (
           ""
         )}

@@ -1,8 +1,8 @@
 {
     "currentUser": {
-       "image": "/assets/user-images/image-ubong.jpg",
-       "name": "Ubong Sylvester",
-       "username": "devubong"
+       "image": "/user-images/current-user.jpg",
+       "name": "Salma Azzam",
+       "username": "salma-azzam"
     },
     "productRequests": [
        {

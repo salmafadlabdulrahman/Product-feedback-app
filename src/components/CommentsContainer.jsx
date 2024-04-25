@@ -27,6 +27,7 @@ function CommentsContainer({ commentData }) {
                 content={item.content}
                 id={item.id}
                 replies={item.replies ? item.replies : ""}
+                commentData={commentData}
               />
             </div>
 

@@ -7,8 +7,8 @@ function FeedbackDetails() {
   const params = useParams();
   const navigate = useNavigate();
   const commentData = JSON.parse(localStorage.getItem("comments")) || [];
-  const currentData = commentData.find(
-    (data) => data.id === parseInt(params.id)
+  const currentData = commentData?.find(
+    (data) => data?.id === parseInt(params.id)
   );
 
   const cancel = function () {

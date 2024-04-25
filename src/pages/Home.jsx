@@ -20,12 +20,12 @@ function Home() {
             currentCategorie.map((comment, index) => (
               <FeedbackCard
                 key={index}
-                id={comment.id}
-                title={comment.title}
-                description={comment.description}
-                category={comment.category}
-                upvotes={comment.upvotes}
-                commentsCount={comment.comments.length}
+                id={comment?.id}
+                title={comment?.title}
+                description={comment?.description}
+                category={comment?.category}
+                upvotes={comment?.upvotes}
+                commentsCount={comment?.comments.length}
               />
             ))
           ) : (
