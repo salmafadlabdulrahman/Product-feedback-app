@@ -12,17 +12,29 @@ function FeedbackCard({
   upvotes,
   commentsCount,
 }) {
-  const [upVotesNum, setUpVotesNum] = useState(upvotes);
   const [userUpvoted, setUserUpVoted] = useState(false);
+  const [currentUpvoteCount, setCurrentUpvoteCount] = useState(upvotes)
+  
 
   const changeUpvote = function () {
-    if (!userUpvoted) {
-      setUpVotesNum((prevNum) => prevNum + 1);
-      setUserUpVoted(true);
-    } else {
-      setUpVotesNum((prevNum) => prevNum - 1);
-      setUserUpVoted(false);
-    }
+    const feedbacks = JSON.parse(localStorage.getItem("comments")) || [];
+    const updateFeedbacks = feedbacks.map((feedback) => {
+      if (feedback.id === id) {
+        if (!userUpvoted) {
+          feedback.upvotes = feedback.upvotes + 1;
+          setCurrentUpvoteCount(() => feedback.upvotes)
+        } else {
+          feedback.upvotes = feedback.upvotes - 1;
+          setCurrentUpvoteCount(() => feedback.upvotes)
+        }
+        return {...feedback};
+      }
+      return feedback;
+    });
+    localStorage.setItem("comments", JSON.stringify(updateFeedbacks));
+    setUserUpVoted((prevUserUpvoted) => !prevUserUpvoted);
+
+    console.log(upvotes)
   };
 
   return (
@@ -41,7 +53,7 @@ function FeedbackCard({
         </div>
         <div
           className="comments-container flex items-center justify-between mt-5 md:m-0 cursor-pointer md:order-1"
-          onClick={changeUpvote}
+          onClick={() => changeUpvote()}
         >
           <div className="votes-num bg-[#f7f8fd] text-[#3A4374] flex items-center w-[70px] justify-center gap-2 h-[40px] rounded-lg font-bold text-[.9em] md:order-1 md:block md:text-center md:h-[50px] md:pt-[.1em]">
             <svg
@@ -58,7 +70,7 @@ function FeedbackCard({
                 d="m4.5 15.75 7.5-7.5 7.5 7.5"
               />
             </svg>
-            <span>{upVotesNum}</span> {/*upvotes  */}
+            <span>{currentUpvoteCount}</span>
           </div>
         </div>
 
