@@ -57,7 +57,7 @@ function FeedbackDetails() {
 
       <CommentsContainer commentData={currentData} />
 
-      <AddComment />
+      <AddComment commentData={currentData} />
     </div>
   );
 }

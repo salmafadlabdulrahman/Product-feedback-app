@@ -21,11 +21,11 @@ function CommentsContainer({ commentData }) {
             >
               <Comment
                 commentsCount={commentData?.comments?.length}
-                userImg={item.user.image}
-                name={item.user.name}
-                userName={item.user.username}
-                content={item.content}
-                id={item.id}
+                userImg={item?.user?.image}
+                name={item?.user?.name}
+                userName={item?.user?.username}
+                content={item?.content}
+                id={item?.id}
                 replies={item.replies ? item.replies : ""}
                 commentData={commentData}
               />
