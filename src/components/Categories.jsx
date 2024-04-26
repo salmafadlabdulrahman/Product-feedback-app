@@ -1,29 +1,36 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import "../styles/navbar.css";
-import { filterCategories } from "../../utilis";
 import { MyContext } from "../MyContext";
+import data from "../../data.json";
 
 function Categories() {
   const {
-    currentCategorie,
-    setCurrentCategorie,
     currentRequest,
     setCurrentRequest,
+    setCurrentList
   } = useContext(MyContext);
 
   const filterList = function (category) {
-    setCurrentRequest((prevState) => ({
-      ...prevState,
-      category: category,
-    }));
+    const list =
+      JSON.parse(localStorage.getItem("comments")) || data.productRequests;
+    if (category === "all") {
+      console.log(list)
+      setCurrentRequest((prevState) => ({
+        ...prevState,
+        category: category,
+      }));
 
-    setCurrentCategorie(() => filterCategories(category));
+      setCurrentList(() => list)
+    } else {
+      const result = list.filter((item) => item.category === category);
+      console.log(result)
+      setCurrentRequest((prevState) => ({
+        ...prevState,
+        category: category,
+      }));
+      setCurrentList(() => result)
+    }
   };
-
-  useEffect(() => {
-    localStorage.setItem("currentRequest", JSON.stringify(currentRequest));
-    localStorage.setItem("comments", JSON.stringify(currentCategorie));
-  }, [currentRequest, currentCategorie]);
 
   const categories = ["all", "ui", "ux", "enhancement", "feature", "bug"].map(
     (category, index) => (
@@ -37,6 +44,7 @@ function Categories() {
         }}
         onClick={() => filterList(category)}
       >
+        {" "}
         {category}
       </li>
     )

@@ -8,7 +8,8 @@ import emptyPageIcon from "../assets/shared/suggestions/illustration-empty.svg";
 import { Link } from "react-router-dom";
 
 function Home() {
-  const { currentCategorie } = useContext(MyContext);
+  const { currentList } = useContext(MyContext);
+  
 
   return (
     <div>
@@ -16,8 +17,8 @@ function Home() {
         <Navbar />
         <div className="main-content lg:pt-[5em] lg:w-[100%]">
           <AddFeedback />
-          {currentCategorie.length >= 1 ? (
-            currentCategorie.map((comment, index) => (
+          {currentList?.length >= 1 ? (
+            currentList.map((comment, index) => (
               <FeedbackCard
                 key={index}
                 id={comment?.id}

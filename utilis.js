@@ -1,11 +1,15 @@
 import data from "./data.json";
 
 export const filterCategories = function (currCategory) {
-  if (currCategory === "all") return data.productRequests
-  const list = data.productRequests.filter(
-    (item) => item.category === currCategory
-  );
-  return list;
+  const feedbacks =
+    JSON.parse(localStorage.getItem("comments")) || data.productRequests;
+  if (currCategory === "all") {
+    const result = localStorage.setItem("comments", JSON.stringify(feedbacks));
+    return result;
+  } else {
+    const list = feedbacks.filter((item) => item.category === currCategory);
+    return list;
+  }
 };
 
 export const sortComments = function (list, sortingType) {

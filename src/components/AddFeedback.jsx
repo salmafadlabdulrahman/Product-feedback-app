@@ -34,7 +34,7 @@ function AddFeedback() {
     <div>
       <div className="bg-[#3A4374] text-white py-4 px-5 flex items-center justify-between md:rounded-[10px] md:mt-[4em] md:max-w-[750px] md:m-auto lg:m-0">
         <h3 className="hidden md:flex items-center gap-3">
-          <img src={suggestionsIcon} alt="suggestions icon" />7 Suggestions
+          <img src={suggestionsIcon} alt="suggestions icon" />{currentCategorie?.length} Suggestions
         </h3>
         <h3 className="flex items-center gap-2">
           Sort by: {currentRequest?.sort}{" "}

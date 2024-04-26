@@ -10,14 +10,11 @@ import { useState } from "react";
 import AddFeedbackForm from "./forms/AddFeedbackForm";
 import EditFeedbackForm from "./forms/EditFeedbackForm";
 import data from "../data.json";
-import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  const list = JSON.parse(localStorage.getItem("comments"));
-  const defaultList = !list
-    ? localStorage.setItem("comments", JSON.stringify(data.productRequests))
-    : list;
-  const [currentCategorie, setCurrentCategorie] = useState(defaultList);
+  const list =
+    JSON.parse(localStorage.getItem("comments")) || data.productRequests;
+  const [currentCategorie, setCurrentCategorie] = useState(list); 
   const request = JSON.parse(localStorage.getItem("currentRequest"));
   const [currentRequest, setCurrentRequest] = useState(
     !request
@@ -32,6 +29,8 @@ function App() {
       : request
   );
 
+  const [currentList, setCurrentList] = useState(currentCategorie);
+
   return (
     <>
       <MyContext.Provider
@@ -40,6 +39,8 @@ function App() {
           setCurrentCategorie,
           currentRequest,
           setCurrentRequest,
+          currentList,
+          setCurrentList,
         }}
       >
         <BrowserRouter>
