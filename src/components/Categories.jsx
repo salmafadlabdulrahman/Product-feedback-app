@@ -14,7 +14,6 @@ function Categories() {
     const list =
       JSON.parse(localStorage.getItem("comments")) || data.productRequests;
     if (category === "all") {
-      console.log(list)
       setCurrentRequest((prevState) => ({
         ...prevState,
         category: category,
@@ -23,7 +22,6 @@ function Categories() {
       setCurrentList(() => list)
     } else {
       const result = list.filter((item) => item.category === category);
-      console.log(result)
       setCurrentRequest((prevState) => ({
         ...prevState,
         category: category,

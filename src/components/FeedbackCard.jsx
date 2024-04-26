@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import "../styles/feedback.css";
 import iconComment from "../assets/shared/icon-comments.svg";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../MyContext";
 
 function FeedbackCard({
@@ -14,35 +14,32 @@ function FeedbackCard({
   commentsCount,
 }) {
   const [userUpvoted, setUserUpVoted] = useState(false);
-  const [currentUpvoteCount, setCurrentUpvoteCount] = useState(upvotes)
-  const {currentCategorie, setCurrentCategorie} = useContext(MyContext)
-  
+  const [currentUpvoteCount, setCurrentUpvoteCount] = useState(upvotes);
+  const { setCurrentCategorie } = useContext(MyContext);
 
   const changeUpvote = function () {
-    //const feedbacks = JSON.parse(localStorage.getItem("comments")) || [];
-    const feedbacks = currentCategorie;
+    const feedbacks = JSON.parse(localStorage.getItem("comments")) || [];
     const updateFeedbacks = feedbacks.map((feedback) => {
       if (feedback.id === id) {
         if (!userUpvoted) {
           feedback.upvotes = feedback.upvotes + 1;
-          setCurrentUpvoteCount(() => feedback.upvotes)
-          
+          setCurrentUpvoteCount(() => feedback.upvotes);
         } else {
           feedback.upvotes = feedback.upvotes - 1;
-          setCurrentUpvoteCount(() => feedback.upvotes)
+          setCurrentUpvoteCount(() => feedback.upvotes);
         }
-        return {...feedback};
       }
       return feedback;
     });
-    setCurrentCategorie(() => {
-      localStorage.setItem("comments", JSON.stringify(updateFeedbacks));
-    })
-    
-    setUserUpVoted((prevUserUpvoted) => !prevUserUpvoted);
+    setCurrentCategorie(() => feedbacks);
 
-    console.log(upvotes)
+    setUserUpVoted((prevUserUpvoted) => !prevUserUpvoted);
+    localStorage.setItem("comments", JSON.stringify(updateFeedbacks));
   };
+
+  useEffect(() => {
+    setCurrentUpvoteCount(upvotes);
+  }, [upvotes]);
 
   return (
     <div className="cards-container m-auto mt-6 md:max-w-[750px] md:mt-6">
@@ -93,6 +90,3 @@ function FeedbackCard({
 }
 
 export default FeedbackCard;
-
-//TODO: when you update a comment's upvote and then go to another category like UI, and then get back to the previous category the comments gets
-//re rendered from the beginning and all the changes you've made gets deleted, fix this issue.

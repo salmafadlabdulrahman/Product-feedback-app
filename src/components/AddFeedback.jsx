@@ -15,7 +15,7 @@ const sorting = [
 
 function AddFeedback() {
   const [listOpen, setListOpen] = useState(false);
-  const { currentCategorie, setCurrentCategorie, currentRequest, setCurrentRequest } = useContext(MyContext);
+  const { currentCategorie, setCurrentCategorie, currentRequest, setCurrentRequest, currentList, setCurrentList } = useContext(MyContext);
 
   const updateFeedbackList = function (item) {
     setCurrentRequest((prevState) => ({
@@ -23,6 +23,7 @@ function AddFeedback() {
       sort: item,
     }));
     setCurrentCategorie((prevList) => sortComments(prevList, item));
+    setCurrentList((prevList) => sortComments(prevList, item))
   };
 
   useEffect(() => {
@@ -34,7 +35,7 @@ function AddFeedback() {
     <div>
       <div className="bg-[#3A4374] text-white py-4 px-5 flex items-center justify-between md:rounded-[10px] md:mt-[4em] md:max-w-[750px] md:m-auto lg:m-0">
         <h3 className="hidden md:flex items-center gap-3">
-          <img src={suggestionsIcon} alt="suggestions icon" />{currentCategorie?.length} Suggestions
+          <img src={suggestionsIcon} alt="suggestions icon" />{currentList?.length} Suggestions
         </h3>
         <h3 className="flex items-center gap-2">
           Sort by: {currentRequest?.sort}{" "}
