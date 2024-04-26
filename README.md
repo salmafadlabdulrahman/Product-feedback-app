@@ -53,7 +53,7 @@ Users should be able to:
 ![screencapture-127-0-0-1-5173-roadmap-2024-04-26-17_19_56](https://github.com/salmafadlabdulrahman/Product-feedback-app/assets/88597694/39544450-f0b5-4b74-b7b6-1fdf09800010)
 ![add-new-feedback-form](https://github.com/salmafadlabdulrahman/Product-feedback-app/assets/88597694/e0ebafe8-37b3-4576-9f38-e958cdd2b7fa)
 
--  [All Screenshots](./screenshots/)
+-  [All Screenshots](./src/assets/screenshots/)
 
 ### Links
 
