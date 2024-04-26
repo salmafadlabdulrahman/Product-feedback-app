@@ -57,7 +57,7 @@ Users should be able to:
 
 ### Links
 
--  Live Site URL: ([https://devubong-product-feedback.netlify.app/](https://product-feedback-app-pi.vercel.app/])
+-  Live Site URL: ([https://product-feedback-app-pi.vercel.app/])
 
 ## My process
 
@@ -73,4 +73,4 @@ Users should be able to:
 
 ## Author
 
--  Website - [Salma Fadl]([https://www.devubong.com](https://comfy-pithivier-78a241.netlify.app/])
+-  Website - [Salma Fadl]([https://comfy-pithivier-78a241.netlify.app/])
